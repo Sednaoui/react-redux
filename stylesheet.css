@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+.myContainer {
+  border-radius: 10%;
+  padding: 1%;
+  float: left;
+  margin: 2%;
+}
+
+@media screen and (max-width: 600px) {
+  .myContainer {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.myList {
+  width: 272px;
+  background-color: #7fdbff;
+}
+
+.addList {
+  margin: 2%;
+}
+
+.myActivity {
+  width: 300px;
+  background-color: #7fffa3;
+}
+
+.mycard {
+  position: relative;
+  background-color: #ffa37f;
+  border-radius: 7%;
+  width: 80%;
+  margin: 5%;
+  border: solid thin white;
+}
+
+.mycard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+p {
+  margin: 5%;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 12px 16px;
+  transform: translate(0%, -50%);
+}
+
+.close:hover {
+  background: rgb(219, 219, 219);
+}
+
+.addTask {
+  position: relative;
+  margin-bottom: 1%;
+}
+
+.addTask:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+li,
+h4 {
+  margin: 2%;
+}

@@ -8,10 +8,10 @@
 }
 
 .myContainer {
-  border-radius: 10%;
-  padding: 1%;
-  float: left;
-  margin: 2%;
+  border-radius: 20px;
+  padding: 0;
+  margin: 10px;
+  height: 430px;
   flex-direction: row;
 }
 
@@ -51,7 +51,7 @@
 }
 
 p {
-  margin: 5%;
+  margin: 10px;
 }
 
 .close {
@@ -69,6 +69,8 @@ p {
 
 li,
 h4 {
-  margin: 2%;
+  margin: 10px;
+}
+
 }
 }

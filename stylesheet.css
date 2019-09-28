@@ -50,9 +50,9 @@
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
 }
 
-p {
+ p {
   margin: 10px;
-}
+} 
 
 .close {
   cursor: pointer;

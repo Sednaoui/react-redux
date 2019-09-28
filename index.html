@@ -7,38 +7,7 @@
     <div class="myMainContainer">
       <section class="myContainer myList">
         <h3 contenteditable="true" <span style="text-align: center">List1</h3>
-        <ul style="list-style-type:none" class="scrollList">
-          <li class="mycard">
-            <p contenteditable="true">task1</p>
-            <span class="close">x</span>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task2</p>
-            <span class="close">x</span>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task3</p>
-            <span class="close">x</span>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task3</p>
-            <span class="close">x</span>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task3</p>
-            <span class="close">x</span>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task3</p>
-            <span class="close">x</span>
-          </li>
-        </ul>
-        <h4 contenteditable="true" class="addTask">+Add Task</h4>
-      </section>
-
-      <section class="myContainer myList">
-        <h3 contenteditable="true" <span style="text-align: center">List2</h3>
-        <ul style="list-style-type:none" class="scrollList">
+        <ul id = "myListOfTasks" style="list-style-type:none" class="scrollList">
           <li class="mycard">
             <p contenteditable="true">task1</p>
             <span class="close">x</span>
@@ -52,9 +21,12 @@
             <span class="close">x</span>
           </li>
         </ul>
-        <h4 contenteditable="true" class="addTask">+Add Task</h4>
+        <form>
+        <input type="text" id ="addTaskID" class="addTask" placeholder="Add Task"></input>
+        <input onclick="newTask(event)" type="submit"Submit">
+      </form>
       </section>
-
+      
       <aside class="myContainer myActivity">
         <form class="addList" action="">
           <input type="text" placeholder="Add List.." name="New List" />
@@ -86,16 +58,19 @@
             task 4 created
           </li>
           <li>
-              task 4 created
-            </li>
-            <li>
-                task 4 created
-              </li>
-              <li>
-                  task 4 created
-                </li>
+            task 4 created
+          </li>
+          <li>
+            task 4 created
+          </li>
+          <li>
+            task 4 created
+          </li>
         </ul>
       </aside>
     </div>
+
+    <script type="text/javascript" src="main.js"></script>
+
   </body>
 </html>

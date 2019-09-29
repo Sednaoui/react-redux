@@ -8,6 +8,17 @@ for (let  i= 0; i < myNodelist.length; i++) {
   myNodelist[i].appendChild(span);
 }
 
+// Click on a close button to close
+let close = document.getElementsByClassName("close");
+let i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    let div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+
 //add new card
 function newTask() {
     event.preventDefault();

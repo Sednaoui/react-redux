@@ -3,6 +3,9 @@
   font-size: 100%;
   font-family: 'Work Sans', sans-serif;
 }
+body {
+background-color: rgb(247, 225, 220)
+}
 
 .myMainContainer {
   display: inline-flex;

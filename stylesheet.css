@@ -24,12 +24,12 @@
 
 .myList {
   width: 272px;
-  background-color: #7fdbff;
+  background-color: #E5989B;
 }
 
 .myActivity {
   width: 300px;
-  background-color: #7fffa3;
+  background-color: #FFB4A2;
 }
 
 .addList {
@@ -37,7 +37,7 @@
 }
 
 .mycard {
-  background-color: #ffa37f;
+  background-color: #FFCDB2;
   border-radius: 10px;
   width: 80%;
   margin: 10px;

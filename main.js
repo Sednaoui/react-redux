@@ -27,6 +27,7 @@ function newTask() {
     let text = document.createTextNode(addNewTaskInput);
     task.className = "mycard"
     task.appendChild(text);
+    task.contentEditable = "true";
     
     if (addNewTaskInput === '') {
         alert("Hey you! Don't try to submit an empty task :@");
@@ -36,6 +37,7 @@ function newTask() {
     
     //make add task input to zero after submit
     // document.getElementById("addNewTaskInput").value = "";
+
     let spanClose = document.createElement("SPAN");
     let txtClose = document.createTextNode("\u00D7");
     spanClose.className = "close";

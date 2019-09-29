@@ -1,3 +1,4 @@
+//add new card
 function newTask() {
     event.preventDefault();
     let task = document.createElement('li');
@@ -15,3 +16,14 @@ function newTask() {
     //make add task input to zero after submit
     document.getElementById("addNewTaskInput").value = "";
 }
+
+// close buttom and append to each card
+let myNodelist = document.getElementsByTagName("li");
+for (let  i= 0; i < myNodelist.length; i++) {
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+

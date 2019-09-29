@@ -43,7 +43,6 @@ function newTask() {
   spanClose.className = "close";
   spanClose.appendChild(txtClose);
   task.appendChild(spanClose);
-  activity.appendChild(spanClose);
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {

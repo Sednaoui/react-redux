@@ -20,15 +20,9 @@
       <section class="myContainer myList">
         <h3 contenteditable="true" <span style="text-align: center">List1</h3>
         <ul id = "myListOfTasks" style="list-style-type:none" class="scrollList">
-          <li class="mycard">
-            <p contenteditable="true">task1</p>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task2</p>
-          </li>
-          <li class="mycard">
-            <p contenteditable="true">task3</p>
-          </li>
+          <li contenteditable="true" class="mycard">task1</li>
+          <li contenteditable="true" class="mycard">task2</li>
+          <li contenteditable="true" class="mycard">task3</li>
         </ul>
         <form>
         <input type="text" id ="addTaskID" class="addTask" placeholder="+ Add Task"></input>
@@ -38,18 +32,19 @@
       
       <aside class="myContainer myActivity">
         <form class="addList" action="">
-          <input type="text" placeholder="Add List.." name="New List" />
+          <input class="addTask" type="text" placeholder="Add List.." name="New List" />
+          <input class="submitButton" onclick="" type="submit" value="Add"></input>
         </form>
         <h3 <span style="text-align: center">My activity</h3>
         <ul id= "myListofActivity" style="list-style-type:none" class="scrollList">
           <li>
-            Task 1 created
+            Task 1 has been created
           </li>
           <li>
-            Task 2 created
+            Task 2 has been created
           </li>
           <li>
-            Task 3 created
+            Task 3 has been created
           </li>
         </ul>
       </aside>

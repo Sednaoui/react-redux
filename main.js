@@ -54,7 +54,7 @@ function newTask() {
   //add activity
   function addActivity(addNewTaskInput) {
     let activity = document.createElement("li");
-    let textActivity = document.createTextNode(`Card "${addNewTaskInput}" has been created`);
+    let textActivity = document.createTextNode(`${addNewTaskInput} has been created`);
     activity.appendChild(textActivity);
     document.getElementById("myListofActivity").appendChild(activity);
 

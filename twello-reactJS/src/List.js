@@ -3,16 +3,17 @@ import Card from './Card'
 import "./List.css";
 
 class List extends React.Component {
-  render() {
-    return (
-      <div class="myMainContainer">
-        <div class="myContainer myList">
-          <h3> List1</h3>
-            <Card />
-        </div>
-      </div>
-    );
-  }
+    render() {
+        const task = 'task'
+        return (
+            <div class="myMainContainer">
+                <div class="myContainer myList">
+                    <h3>List1</h3>
+                    <Card task={task}/>
+                </div>  
+            </div>
+        );
+    }
 }
 
 export default List;

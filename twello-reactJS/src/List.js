@@ -6,8 +6,8 @@ class List extends React.Component {
     render() {
         const task = 'Task'
         return (
-            <div class="myMainContainer">
-                <div class="myContainer myList">
+            <div className="myMainContainer">
+                <div className="myContainer myList">
                     <h3>List1</h3>
                     <Card task={task}/>
                 </div>  

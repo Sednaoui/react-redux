@@ -8,10 +8,8 @@ class Card extends React.Component {
     }
     render() {
         return (
-            <ul class="scrollList">
-                <li class="mycard">{this.props.task}</li>
-                <li class="mycard">{this.props.task}</li>
-                <li class="mycard">{this.props.task}</li>
+            <ul className="scrollList">
+                <li className="mycard">{this.props.task}</li>
             </ul>
         );
     }

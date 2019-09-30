@@ -2,18 +2,14 @@ import React from "react";
 import "./card.css";
 import PropTypes from 'prop-types';
 
-class Card extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
+const Card = (props) => {
+    const { task } = props;
         return (
             <div className="scrollList">
-                <p className="mycard">{this.props.task}</p>
+                <p className="mycard">{task}</p>
             </div>
         );
-    }
-}
+};
 
 Card.defaultProps = {
     task: 'This is a card'

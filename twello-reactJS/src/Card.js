@@ -1,5 +1,6 @@
 import React from "react";
 import "./card.css";
+import PropTypes from 'prop-types';
 
 class Card extends React.Component {
     constructor(props){
@@ -15,5 +16,10 @@ class Card extends React.Component {
         );
     }
 }
+
+Card.defaultProps = {
+    task: 'This is a card'
+};
+
 
 export default Card;

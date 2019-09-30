@@ -1,10 +1,11 @@
 import React from "react";
 import Card from './Card'
 import "./List.css";
+import PropTypes from 'prop-types';
 
 class List extends React.Component {
     render() {
-        const task = 'task'
+        const task = 'Task'
         return (
             <div class="myMainContainer">
                 <div class="myContainer myList">
@@ -15,5 +16,9 @@ class List extends React.Component {
         );
     }
 }
+
+Card.propTypes = {
+    task: PropTypes.string
+};
 
 export default List;

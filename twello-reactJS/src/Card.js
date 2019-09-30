@@ -3,7 +3,7 @@ import "./card.css";
 import PropTypes from 'prop-types';
 
 class Card extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
     render() {
@@ -20,6 +20,8 @@ class Card extends React.Component {
 Card.defaultProps = {
     task: 'This is a card'
 };
-
+Card.propTypes = {
+    task: PropTypes.string
+};
 
 export default Card;

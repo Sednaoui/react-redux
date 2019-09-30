@@ -8,9 +8,9 @@ class Card extends React.Component {
     }
     render() {
         return (
-            <ul className="scrollList">
-                <li className="mycard">{this.props.task}</li>
-            </ul>
+            <div className="scrollList">
+                <p className="mycard">{this.props.task}</p>
+            </div>
         );
     }
 }

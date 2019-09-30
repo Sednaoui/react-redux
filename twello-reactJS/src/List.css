@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+  font-family: "Work Sans", sans-serif;
+}
+
+.myMainContainer {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.myContainer {
+  border-radius: 20px;
+  /* padding: 0; */
+  margin: 10px;
+  height: 430px;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 600px) {
+  .myContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.myList {
+  width: 272px;
+  background-color: #e5989b;
+}
+
+.addList {
+  margin: 8px;
+}
+
+h4 {
+  margin: 10px;
+}
+
+li {
+  padding: 10px;
+}
+
+h3 {
+    text-align: center
+}

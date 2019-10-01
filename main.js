@@ -10,8 +10,8 @@ for (let i = 0; i < myNodelist.length; i++) {
 
 // Click on a close button to close
 let close = document.getElementsByClassName("close");
-let i;
-for (i = 0; i < close.length; i++) {
+
+for (let i = 0; i < close.length; i++) {
   close[i].onclick = function() {
     let div = this.parentElement;
     div.style.display = "none";
@@ -44,7 +44,7 @@ function newTask() {
   spanClose.appendChild(txtClose);
   task.appendChild(spanClose);
 
-  for (i = 0; i < close.length; i++) {
+  for (let i = 0; i < close.length; i++) {
     close[i].onclick = function() {
       let div = this.parentElement;
       div.style.display = "none";
@@ -64,7 +64,7 @@ function newTask() {
     spanClose.appendChild(txtClose);
     activity.appendChild(spanClose);
 
-    for (i = 0; i < close.length; i++) {
+    for (let i = 0; i < close.length; i++) {
       close[i].onclick = function() {
         let div = this.parentElement;
         div.style.display = "none";

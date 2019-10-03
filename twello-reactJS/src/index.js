@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore } from "redux";
-import twelloApp from "../src/Reducers/mainReducer"
+import rootReducer from "../src/Reducers/mainReducer"
 import { Provider } from 'react-redux'
 
-export const store = createStore(twelloApp,
+export const store = createStore(rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
 

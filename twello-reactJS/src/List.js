@@ -18,7 +18,7 @@ class List extends React.Component {
         <div className="myContainer myList">
           <h3>List Name</h3>
           {this.props.cardReducer.map(eachDescription => (
-            <Card key={eachDescription.id} task={eachDescription.text}/>
+            <Card {...eachDescription} key={eachDescription.id} task={eachDescription.text}/>
           ))}
           <form
             onSubmit={e => {

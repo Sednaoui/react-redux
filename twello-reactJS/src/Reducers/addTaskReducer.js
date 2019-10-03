@@ -3,11 +3,13 @@
 const initial_tasks = [
   {
     id: 0,
-    text: "Task 1"
+    text: "Task 1",
+    closed: false
   },
   {
     id: 1,
-    text: "Task 2"
+    text: "Task 2",
+    closed: false
   }
 ];
 

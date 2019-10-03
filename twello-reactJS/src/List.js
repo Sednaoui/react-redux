@@ -19,41 +19,33 @@ class List extends React.Component {
 
   render() {
     const shortid = require("shortid");
+    console.log("props", this.props);
     let input;
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
           <h3>List Name</h3>
-          <Card task="Task 1" />
-          {this.props.addTaskReducer.map(eachDescription => (
+          {this.props.list.map(eachDescription => (
             <Card key={eachDescription.id} task={eachDescription.text} />
           ))}
-        </div>
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            if (!input.value.trim()) {
-              return;
-            }
-            store.dispatch(addTask(input.value));
-            input.value = "";
-          }}
-        >
-          <input ref={node => (this.input = node)} />
-          <button
-            //   onClick={() => {
-            //     store.dispatch({
-            //       type: ADD_TASK,
-            //       text: this.input.value,
-            //       id: shortid.generate()
-            //     });
-            //     this.input.value = ""
-            //   }}
-            type="submit"
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              console.log(this.input);
+              if (!this.input.value.trim()) {
+                return;
+              }
+              store.dispatch(addTask(this.input.value));
+              this.input.value = "";
+            }}
           >
-            Add Card
-          </button>
-        </form>
+            <input ref={node => (this.input = node)} />
+            <button
+              type="submit">
+              Add Card
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
@@ -66,4 +58,7 @@ List.propTypes = {
   title: PropTypes.string
 };
 
-export default connect()(List);
+const mapStateToProps = state => ({
+  list: state.addTaskReducers
+});
+export default connect(mapStateToProps)(List);

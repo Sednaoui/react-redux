@@ -7,7 +7,9 @@ import { createStore } from "redux";
 import twelloApp from "../src/Reducers/mainReducer"
 import { Provider } from 'react-redux'
 
-export const store = createStore(twelloApp);
+export const store = createStore(twelloApp,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect} from 'react-redux'
 import './App.css';
 import List from './List';
 import Navbar from './Navbar';
@@ -8,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Navbar/>
-        <List title="List1"/>
+        <List title="List1"  />
       </header>
     </div>
   );

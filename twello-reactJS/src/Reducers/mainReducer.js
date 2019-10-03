@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import addTaskReducers from "./addTaskReducer"
+import taskReducer from "./taskReducer"
 
-const twelloApp = combineReducers({
-    addTaskReducers,
+const rootReducer = combineReducers({
+    taskReducer,
 })
 
-export default twelloApp
+export default rootReducer

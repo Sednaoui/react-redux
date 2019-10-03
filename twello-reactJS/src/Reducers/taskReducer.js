@@ -13,7 +13,7 @@ const initial_tasks = [
   }
 ];
 
-const addTaskReducer = (state = initial_tasks, action) => {
+const taskReducer = (state = initial_tasks, action) => {
   switch (action.type) {
     case "ADD_TASK":
       return [
@@ -24,10 +24,10 @@ const addTaskReducer = (state = initial_tasks, action) => {
         }
       ];
     case "CLOSE_TASK":
-      return state.filter(eachTask => eachTask.key !== action);
+      return state.filter(eachTask => eachTask.id !== action);
     default:
       return state;
   }
 };
 
-export default addTaskReducer;
+export default taskReducer;

@@ -18,7 +18,7 @@ class List extends React.Component {
         <div className="myContainer myList">
           <h3>List Name</h3>
           {this.props.cardReducer.map(eachDescription => (
-            <Card {...eachDescription} key={eachDescription.id} task={eachDescription.text}/>
+            <Card {...eachDescription} key={eachDescription.id}/>
           ))}
           <form
             onSubmit={e => {
@@ -51,7 +51,7 @@ List.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  cardReducer: state.addTaskReducers,
+  cardReducer: state.taskReducer,
 });
 
 export default connect(mapStateToProps)(List);

@@ -6,22 +6,21 @@ import { closeTask } from "./Actions/actionCreator";
 import { store } from "./index";
 
 const Card = props => {
-  const { task, key } = props;
-  function handleClose(e) {
-    e.preventDefault();
-    props.close(key);
-    console.log("props.delete", props.close(key));
+  const { id } = props;
+  function handleClose() {
+    props.close(id);
+    console.log("props.delete", props.close(id));
   }
   return (
     <div className="scrollList">
-      <p className="mycard">{task}</p>
-      <button onClick={handleClose}>X</button>
+      <p className="mycard">{props.text}</p>
+      <button type="button" onClick={handleClose}>X</button>
     </div>
   );
 };
 
 Card.defaultProps = {
-  task: "This is a card"
+  text: "This is a card"
 };
 Card.propTypes = {
   task: PropTypes.string,

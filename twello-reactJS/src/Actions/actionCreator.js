@@ -1,5 +1,3 @@
-import { statement } from "@babel/template";
-
 //generate a short random id
 const shortid = require("shortid");
 

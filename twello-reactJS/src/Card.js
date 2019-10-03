@@ -7,10 +7,11 @@ import { store } from "./index";
 
 
 const Card = props => {
-  const { task } = props;
+  const { task, key } = props;
   function handleClose(e) {
     e.preventDefault();
-    props.delete(props.id)
+    props.close("0")
+    console.log("props.delete", props.close(props.key))
   }
   return (
     <div className="scrollList">
@@ -29,7 +30,7 @@ Card.propTypes = {
 
 const mapDispatchToProps = dispatch => {
     return {
-      delete: cardtask => store.dispatch({type: 'CLOSE_TASK', id: cardtask })
+      close: cardtaskid => store.dispatch(closeTask(cardtaskid))
     }
 }
 

@@ -20,17 +20,12 @@ const addTaskReducer = (state = initial_tasks, action) => {
         ...state,
         {
           id: action.id,
-          text: action.text,
-          closed: false
+          text: action.text
         }
       ];
     case "CLOSE_TASK":
-      return state.map(eachTask =>
-        eachTask.id === action.id
-          ? { ...eachTask, closed: !eachTask.closed }
-          : eachTask
-      );
-
+    //   console.log(state);
+      return state.filter(eachTask => eachTask.id === action.id);
     default:
       return state;
   }

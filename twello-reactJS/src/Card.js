@@ -17,13 +17,6 @@ const Card = props => {
     props.edit(val)
   }
 
-  // function handleEdit() {
-  //   console.log(props.edit("New Task Name"));
-  //   return (
-  //     console.log(props.edit("New Task Name"))
-  //   );
-  // }
-
   return (
     <div className="scrollList">
       {/* <p className="mycard">{props.text}</p> */}

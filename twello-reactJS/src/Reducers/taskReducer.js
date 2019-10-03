@@ -24,7 +24,7 @@ const taskReducer = (state = initial_tasks, action) => {
     case "CLOSE_TASK":
       return state.filter(eachTask => eachTask.id !== action.id);
     case "EDIT_TODO":
-      if (state.text !== action.input) {
+      if (state.text === action.input) {
         return state;
       }
       return {

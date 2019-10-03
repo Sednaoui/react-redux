@@ -16,3 +16,4 @@ export const closeTask = id => ({
 
 // action type add a task
 export const ADD_TASK = "ADD_TASK";
+export const CLOSE_TASK = "CLOSE_TASK";

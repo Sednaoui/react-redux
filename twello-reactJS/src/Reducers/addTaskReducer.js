@@ -15,7 +15,7 @@ const initial_tasks = [
 
 const addTaskReducer = (state = initial_tasks, action) => {
   switch (action.type) {
-    case 'ADD_TASK':
+    case "ADD_TASK":
       return [
         ...state,
         {
@@ -24,7 +24,11 @@ const addTaskReducer = (state = initial_tasks, action) => {
           closed: false
         }
       ];
-      default: 
+    case "CLOSE_TASK":
+      return state.map(eachTask => (eachTask.id === action.id)
+        ? { ...eachTask, closed: !eachTask.closed }
+        : eachTask)
+    default:
       return state;
   }
 };

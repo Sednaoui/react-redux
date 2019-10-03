@@ -7,6 +7,7 @@ const Card = (props) => {
         return (
             <div className="scrollList">
                 <p className="mycard">{task}</p>
+                <button>X</button>
             </div>
         );
 };

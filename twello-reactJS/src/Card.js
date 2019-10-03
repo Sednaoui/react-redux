@@ -10,7 +10,7 @@ const Card = props => {
   const { task, key } = props;
   function handleClose(e) {
     e.preventDefault();
-    props.close("0")
+    props.close(key)
     console.log("props.delete", props.close(props.key))
   }
   return (
@@ -25,7 +25,8 @@ Card.defaultProps = {
   task: "This is a card"
 };
 Card.propTypes = {
-  task: PropTypes.string
+  task: PropTypes.string,
+  key: PropTypes.string,
 };
 
 const mapDispatchToProps = dispatch => {

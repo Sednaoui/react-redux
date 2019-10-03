@@ -1,13 +1,13 @@
 //import { ADD_TASK } from "../Actions/actionCreator";
-
+import shortid from 'shortid';
 const initial_tasks = [
   {
-    id: 0,
+    id: shortid.generate(),
     text: "Task 1",
     closed: false
   },
   {
-    id: 1,
+    id: shortid.generate(),
     text: "Task 2",
     closed: false
   }
@@ -25,7 +25,7 @@ const addTaskReducer = (state = initial_tasks, action) => {
       ];
     case "CLOSE_TASK":
     //   console.log(state);
-      return state.filter(eachTask => eachTask.id === action.id);
+      return state.filter(eachTask => eachTask.text !== state.text);
     default:
       return state;
   }

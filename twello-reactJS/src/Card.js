@@ -7,14 +7,20 @@ import { store } from "./index";
 
 const Card = props => {
   const { id } = props;
+  
   function handleClose() {
     props.close(id);
-    console.log("props.delete", props.close(id));
   }
+
+  function handleEdit() {
+    console.log("Hello World")
+  }
+
   return (
     <div className="scrollList">
-      <p className="mycard">{props.text}</p>
+      <p className="mycard" >{props.text}</p>
       <button type="button" onClick={handleClose}>X</button>
+      <button type="button" onClick={handleEdit}>Edit Card</button>
     </div>
   );
 };

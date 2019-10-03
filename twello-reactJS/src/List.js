@@ -7,9 +7,6 @@ import { connect } from "react-redux";
 import { addTask } from "./Actions/actionCreator";
 
 class List extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let input;

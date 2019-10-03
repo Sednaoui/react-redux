@@ -27,6 +27,8 @@ const taskReducer = (state = initial_tasks, action) => {
       return state.filter(eachTask => eachTask.id !== action.id);
     default:
       return state;
+    case "EDIT_TODO":
+      return 
   }
 };
 

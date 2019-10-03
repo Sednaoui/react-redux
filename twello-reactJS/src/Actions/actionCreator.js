@@ -5,6 +5,7 @@ const shortid = require("shortid");
 export const addTask = text => ({
   type: ADD_TASK,
   id: shortid.generate(),
+  isEditModeOn: false,
   text
 });
 
@@ -14,9 +15,9 @@ export const closeTask = id => ({
     id
 })
 
-export const editTask = id => ({
+export const editTask = input => ({
     type: EDIT_TASK,
-    id 
+    input, 
 })
 
 // action type add a task

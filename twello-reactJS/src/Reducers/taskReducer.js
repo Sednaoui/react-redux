@@ -4,12 +4,10 @@ const initial_tasks = [
   {
     id: shortid.generate(),
     text: "Task 1",
-    closed: false
   },
   {
     id: shortid.generate(),
     text: "Task 2",
-    closed: false
   }
 ];
 
@@ -25,10 +23,16 @@ const taskReducer = (state = initial_tasks, action) => {
       ];
     case "CLOSE_TASK":
       return state.filter(eachTask => eachTask.id !== action.id);
+    case "EDIT_TODO":
+      if (state.text !== action.input) {
+        return state;
+      }
+      return {
+        ...state,
+        text: action.input
+      };
     default:
       return state;
-    case "EDIT_TODO":
-      return 
   }
 };
 

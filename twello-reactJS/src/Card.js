@@ -2,8 +2,9 @@ import React from "react";
 import "./card.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { closeTask } from "./Actions/actionCreator";
+import { closeTask, editTask } from "./Actions/actionCreator";
 import { store } from "./index";
+import EdiText from "react-editext";
 
 const Card = props => {
   const { id } = props;
@@ -12,25 +13,30 @@ const Card = props => {
     props.close(id);
   }
 
-  function handleEdit() {
-    return (
-      <form>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-      </form>
-    );
+  function onSave(val) {
+    props.edit(val)
   }
+
+  // function handleEdit() {
+  //   console.log(props.edit("New Task Name"));
+  //   return (
+  //     console.log(props.edit("New Task Name"))
+  //   );
+  // }
 
   return (
     <div className="scrollList">
-      <p className="mycard">{props.text}</p>
+      {/* <p className="mycard">{props.text}</p> */}
+      <EdiText
+        viewProps={{
+          className: "mycard",
+        }}
+        type="text"
+        value={props.text}
+        onSave={onSave}
+      />
       <button type="button" onClick={handleClose}>
         X
-      </button>
-      <button type="button" onClick={handleEdit}>
-        Edit Card
       </button>
     </div>
   );
@@ -46,7 +52,8 @@ Card.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    close: cardtaskid => store.dispatch(closeTask(cardtaskid))
+    close: cardtaskid => store.dispatch(closeTask(cardtaskid)),
+    edit: cardInput => store.dispatch(editTask(cardInput))
   };
 };
 

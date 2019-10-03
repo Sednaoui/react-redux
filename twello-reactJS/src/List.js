@@ -12,7 +12,6 @@ class List extends React.Component {
   }
 
   render() {
-    const shortid = require("shortid");
     let input;
     return (
       <div className="myMainContainer">

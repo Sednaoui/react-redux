@@ -9,9 +9,9 @@ export const addTask = text => ({
 });
 
 //close task 
-export const closeTask = id => ({
+export const closeTask = text => ({
     type: CLOSE_TASK,
-    id
+    text
 })
 
 // action type add a task

@@ -25,7 +25,7 @@ const addTaskReducer = (state = initial_tasks, action) => {
       ];
     case "CLOSE_TASK":
     //   console.log(state);
-      return state.filter(eachTask => eachTask.text !== state.text);
+      return state.filter(eachTask => eachTask.text !== action);
     default:
       return state;
   }

@@ -8,5 +8,11 @@ export const addTask = text => ({
   text
 });
 
+//close task 
+export const closeTask = id => ({
+    type: CLOSE_TASK,
+    id
+})
+
 // action type add a task
 export const ADD_TASK = "ADD_TASK";

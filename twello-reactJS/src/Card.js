@@ -19,7 +19,6 @@ const Card = props => {
 
   return (
     <div className="scrollList">
-      {/* <p className="mycard">{props.text}</p> */}
       <div className="mycard">
       <EdiText
         type="text"

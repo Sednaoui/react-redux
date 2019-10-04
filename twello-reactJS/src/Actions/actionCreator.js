@@ -5,7 +5,6 @@ const shortid = require("shortid");
 export const addTask = text => ({
   type: ADD_TASK,
   id: shortid.generate(),
-  isEditModeOn: false,
   text
 });
 

@@ -15,8 +15,9 @@ export const closeTask = id => ({
     id
 })
 
-export const editTask = input => ({
+export const editTask = (input,index) => ({
     type: EDIT_TASK,
+    index,
     input, 
 })
 

@@ -3,11 +3,11 @@ import shortid from "shortid";
 const initial_tasks = [
   {
     id: shortid.generate(),
-    text: "Task 1",
+    text: "Task 1"
   },
   {
     id: shortid.generate(),
-    text: "Task 2",
+    text: "Task 2"
   }
 ];
 
@@ -21,16 +21,24 @@ const taskReducer = (state = initial_tasks, action) => {
           text: action.text
         }
       ];
+
     case "CLOSE_TASK":
       return state.filter(eachTask => eachTask.id !== action.id);
-    case "EDIT_TODO":
-      if (state.text === action.input) {
-        return state;
-      }
-      return {
-        ...state,
-        text: action.input
-      };
+
+    case "EDIT_TASK":
+      // const val = state.map(eachItem => {
+      //   if (state.text !== action.input) {
+      //     return eachItem;
+      //   } else {
+      //     return [...state, {eachItem: action.input}]
+      //   }
+      // });
+      const statecopy = [...state]
+      const task = statecopy[action.index]
+      statecopy[action.index] = {...task,text: action.input}
+      console.log(statecopy)
+      return statecopy
+      // return state
     default:
       return state;
   }

@@ -7,14 +7,14 @@ import { store } from "./index";
 import EdiText from "react-editext";
 
 const Card = props => {
-  const { id } = props;
+  const { id,index } = props;
 
   function handleClose() {
     props.close(id);
   }
 
   function onSave(val) {
-    props.edit(val)
+    props.edit(val,index)
   }
 
   return (
@@ -46,7 +46,7 @@ Card.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     close: cardtaskid => store.dispatch(closeTask(cardtaskid)),
-    edit: cardInput => store.dispatch(editTask(cardInput))
+    edit: (cardInput,index) => store.dispatch(editTask(cardInput,index))
   };
 };
 

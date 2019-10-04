@@ -1,4 +1,3 @@
-//import { ADD_TASK } from "../Actions/actionCreator";
 import shortid from "shortid";
 const initial_tasks = [
   {
@@ -31,7 +30,6 @@ const taskReducer = (state = initial_tasks, action) => {
       statecopy[action.index] = {...task,text: action.input}
       console.log(statecopy)
       return statecopy
-      // return state
     default:
       return state;
   }

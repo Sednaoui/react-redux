@@ -20,17 +20,20 @@ const Card = props => {
   return (
     <div className="scrollList">
       {/* <p className="mycard">{props.text}</p> */}
+      <div className="mycard">
       <EdiText
-        viewProps={{
-          className: "mycard",
-        }}
         type="text"
         value={props.text}
         onSave={onSave}
+        editOnViewClick={true}
+        showButtonsOnHover={true}
       />
+      </div>
       <button type="button" onClick={handleClose}>
         X
       </button>
+
+      
     </div>
   );
 };

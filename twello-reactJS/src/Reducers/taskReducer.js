@@ -26,13 +26,6 @@ const taskReducer = (state = initial_tasks, action) => {
       return state.filter(eachTask => eachTask.id !== action.id);
 
     case "EDIT_TASK":
-      // const val = state.map(eachItem => {
-      //   if (state.text !== action.input) {
-      //     return eachItem;
-      //   } else {
-      //     return [...state, {eachItem: action.input}]
-      //   }
-      // });
       const statecopy = [...state]
       const task = statecopy[action.index]
       statecopy[action.index] = {...task,text: action.input}

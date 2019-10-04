@@ -8,8 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       <Navbar/>
-        <List title="List1" type="todo" />
-        <List title="List2" type="done" />
+        <List title="List 1" type="todo" />
       </header>
     </div>
   );

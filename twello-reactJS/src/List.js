@@ -13,7 +13,7 @@ class List extends React.Component {
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
-          <h3>List Name</h3>
+          <h3>{this.props.title}</h3>
           {this.props.cardReducer.map((eachDescription,i) => (
             <Card {...eachDescription} key={eachDescription.id} index={i}/>
           ))}

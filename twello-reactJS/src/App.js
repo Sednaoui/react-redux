@@ -3,15 +3,17 @@ import "./App.css";
 import List from "./components/List";
 import Navbar from "./Navbar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-        <List title="List 1" type="todo" />
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <Navbar />
+          <List title="List 1" type="todo" />
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;

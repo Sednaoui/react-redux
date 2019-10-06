@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card";
 import "./List.css";
-import { store } from "./index";
+import { store } from "../index";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addTask } from "./Actions/actionCreator";
+import { addTask } from "../Actions/actionCreator";
 
 class List extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class List extends React.Component {
       return;
     }
     store.dispatch(addTask(this.state.value));
-    this.setState({ value: ""})
+    this.setState({ value: "" });
   }
 
   render() {

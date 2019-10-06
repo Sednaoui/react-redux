@@ -2,37 +2,35 @@ import React from "react";
 import "./card.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { closeTask, editTask } from "./Actions/actionCreator";
-import { store } from "./index";
+import { closeTask, editTask } from "../Actions/actionCreator";
+import { store } from "../index";
 import EdiText from "react-editext";
 
 const Card = props => {
-  const { id,index } = props;
+  const { id, index } = props;
 
   function handleClose() {
     props.close(id);
   }
 
   function onSave(val) {
-    props.edit(val,index)
+    props.edit(val, index);
   }
 
   return (
     <div className="scrollList">
       <div className="mycard">
-      <EdiText
-        type="text"
-        value={props.text}
-        onSave={onSave}
-        editOnViewClick={true}
-        showButtonsOnHover={true}
-      />
+        <EdiText
+          type="text"
+          value={props.text}
+          onSave={onSave}
+          editOnViewClick={true}
+          showButtonsOnHover={true}
+        />
       </div>
       <button type="button" onClick={handleClose}>
         X
       </button>
-
-      
     </div>
   );
 };
@@ -48,7 +46,7 @@ Card.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     close: cardtaskid => store.dispatch(closeTask(cardtaskid)),
-    edit: (cardInput,index) => store.dispatch(editTask(cardInput,index))
+    edit: (cardInput, index) => store.dispatch(editTask(cardInput, index))
   };
 };
 

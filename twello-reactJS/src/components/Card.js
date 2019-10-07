@@ -46,7 +46,7 @@ Card.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    close: (taskId, cardId) => store.dispatch(closeTask(taskId, cardId)),
+    close: (listId, cardId) => store.dispatch(closeTask(listId, cardId)),
     edit: (cardInput, index) => store.dispatch(editTask(cardInput, index))
   };
 };

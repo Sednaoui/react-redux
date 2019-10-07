@@ -9,7 +9,7 @@ import { addTask } from "../Actions/actionCreator";
 class List extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", listID: this.props.listID };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,11 +29,12 @@ class List extends React.Component {
   }
 
   render() {
+    const { title, cards } = this.props;
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
-          <h3>{this.props.title}</h3>
-          {this.props.cardReducer.map((eachDescription, i) => (
+          <h3>{title}</h3>
+          {cards.map((eachDescription, i) => (
             <Card {...eachDescription} key={eachDescription.id} index={i} />
           ))}
           <form onSubmit={this.handleSubmit}>
@@ -51,14 +52,16 @@ class List extends React.Component {
 }
 
 List.defaultProps = {
-  title: "List Name"
+  title: "List Name",
+  listID: "List ID123"
 };
 List.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  listID: PropTypes.string
 };
 
 const mapStateToProps = state => ({
-  cardReducer: state.taskReducer
+  cards: state.reducer
 });
 
 export default connect(mapStateToProps)(List);

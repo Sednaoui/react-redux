@@ -2,23 +2,23 @@
 const shortid = require("shortid");
 
 // Action addTask
-export const addTask = text => ({
+export const addTask = (text, listID) => ({
   type: ADD_TASK,
   id: shortid.generate(),
-  text
+  payload: { text, listID }
 });
 
-//close task 
+//close task
 export const closeTask = id => ({
-    type: CLOSE_TASK,
-    id
-})
+  type: CLOSE_TASK,
+  id
+});
 
-export const editTask = (input,index) => ({
-    type: EDIT_TASK,
-    index,
-    input, 
-})
+export const editTask = (input, index) => ({
+  type: EDIT_TASK,
+  index,
+  input
+});
 
 // action type add a task
 export const ADD_TASK = "ADD_TASK";

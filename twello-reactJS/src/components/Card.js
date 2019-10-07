@@ -7,30 +7,31 @@ import { store } from "../index";
 import EdiText from "react-editext";
 
 const Card = props => {
-  const { id, index, text } = props;
-
-  function handleClose() {
-    props.close(id);
+  const { list } = props;
+  function handleClose(cardId) {
+    props.close(list.listID, cardId);
   }
 
-  function onSave(val) {
-    props.edit(val, index);
+  function onSave(val, cardId) {
+    props.edit(val, list.listId, cardId);
   }
 
   return (
     <div className="scrollList">
-      <div className="mycard">
-        <EdiText
-          type="text"
-          value={text}
-          onSave={onSave}
-          editOnViewClick={true}
-          showButtonsOnHover={true}
-        />
-      </div>
-      <button type="button" onClick={handleClose}>
-        X
-      </button>
+      {list.cards.map(card => (
+        <div className="mycard">
+          <EdiText
+            type="text"
+            value={card.text}
+            onSave={onSave.bind(this, card.id)}
+            editOnViewClick={true}
+            showButtonsOnHover={true}
+          />
+          <button type="button" onClick={handleClose.bind(this, card.id)}>
+            X
+          </button>
+        </div>
+      ))}
     </div>
   );
 };
@@ -39,13 +40,13 @@ Card.defaultProps = {
   text: "This is a card"
 };
 Card.propTypes = {
-  task: PropTypes.string,
+  text: PropTypes.string,
   key: PropTypes.string
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    close: cardtaskid => store.dispatch(closeTask(cardtaskid)),
+    close: (taskId, cardId) => store.dispatch(closeTask(taskId, cardId)),
     edit: (cardInput, index) => store.dispatch(editTask(cardInput, index))
   };
 };

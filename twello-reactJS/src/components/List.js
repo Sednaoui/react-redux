@@ -8,7 +8,7 @@ import { addTask } from "../Actions/actionCreator";
 class List extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "", listID: this.props.listID };
+    this.state = { value: "" };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,20 +23,19 @@ class List extends React.Component {
     if (!this.state.value.trim()) {
       return;
     }
-    const { dispatch, listID } = this.props;
-    dispatch(addTask(this.state.value, listID));
+    const { dispatch, list } = this.props;
+    dispatch(addTask(this.state.value, list.listID));
     this.setState({ value: "" });
   }
 
   render() {
-    const { title, cards } = this.props;
+    const { list } = this.props;
+
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
-          <h3>{title}</h3>
-          {cards.map(eachDescription => (
-            <Card {...eachDescription} />
-          ))}
+          <h3>{list.title}</h3>
+          <Card list={list} />
           <form onSubmit={this.handleSubmit}>
             <input
               type="text"
@@ -52,8 +51,7 @@ class List extends React.Component {
 }
 
 List.defaultProps = {
-  title: "List Name",
-  listID: "List ID123"
+  title: "List Name"
 };
 List.propTypes = {
   title: PropTypes.string,
@@ -61,7 +59,7 @@ List.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  cards: state.reducer
+  lists: state.reducer
 });
 
 export default connect(mapStateToProps)(List);

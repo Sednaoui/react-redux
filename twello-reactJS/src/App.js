@@ -23,7 +23,6 @@ class App extends React.Component {
     if (!this.state.value.trim()) {
       return;
     }
-    // store.dispatch(addTask(this.state.value));
     const { dispatch, listID } = this.props;
     dispatch(addList(this.state.value, listID));
     this.setState({ value: "" });
@@ -36,7 +35,7 @@ class App extends React.Component {
         <header className="App-header">
           <Navbar />
           {lists.map(list => (
-            <List type="todo" {...list} />
+            <List type="todo" list={list} />
           ))}
           <form onSubmit={this.handleSubmit}>
             <input

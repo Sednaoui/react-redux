@@ -9,10 +9,13 @@ export const addTask = (text, listID) => ({
 });
 
 //close task
-export const closeTask = id => ({
-  type: CLOSE_TASK,
-  id
-});
+export const closeTask = (listId, cardId) => {
+  return {
+    type: CLOSE_TASK,
+    listId,
+    cardId
+  };
+};
 
 export const editTask = (input, index) => ({
   type: EDIT_TASK,

@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "./Card";
 import "./List.css";
-import { store } from "../index";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addTask } from "../Actions/actionCreator";
@@ -24,7 +23,8 @@ class List extends React.Component {
     if (!this.state.value.trim()) {
       return;
     }
-    store.dispatch(addTask(this.state.value));
+    const { dispatch, listID } = this.props;
+    dispatch(addTask(this.state.value, listID));
     this.setState({ value: "" });
   }
 
@@ -34,8 +34,8 @@ class List extends React.Component {
       <div className="myMainContainer">
         <div className="myContainer myList">
           <h3>{title}</h3>
-          {cards.map((eachDescription, i) => (
-            <Card {...eachDescription} key={eachDescription.id} index={i} />
+          {cards.map(eachDescription => (
+            <Card {...eachDescription} />
           ))}
           <form onSubmit={this.handleSubmit}>
             <input

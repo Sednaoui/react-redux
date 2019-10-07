@@ -7,7 +7,7 @@ import { store } from "../index";
 import EdiText from "react-editext";
 
 const Card = props => {
-  const { id, index } = props;
+  const { id, index, text } = props;
 
   function handleClose() {
     props.close(id);
@@ -22,7 +22,7 @@ const Card = props => {
       <div className="mycard">
         <EdiText
           type="text"
-          value={props.text}
+          value={text}
           onSave={onSave}
           editOnViewClick={true}
           showButtonsOnHover={true}

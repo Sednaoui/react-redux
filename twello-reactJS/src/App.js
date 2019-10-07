@@ -35,8 +35,6 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <Navbar />
-          {/* <List title="List 1" type="todo" /> */}
-          {console.log(lists)}
           {lists.map(list => (
             <List type="todo" {...list} />
           ))}

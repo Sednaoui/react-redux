@@ -21,9 +21,9 @@ class EditText extends React.Component {
   updateValue(event) {
     event.preventDefault();
     this.setState({
-      isInEditMode: false,
-      value: this.state.value
+      isInEditMode: false
     });
+    this.props.onSave(this.props.id, this.state.value);
   }
 
   handleChange = event => {

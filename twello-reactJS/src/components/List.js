@@ -2,8 +2,9 @@ import React from "react";
 import Card from "./Card";
 import "./List.css";
 import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { addTask } from "../Actions/actionCreator";
+import * as actions from "../Actions/actionCreator";
 import EditText from "./EditText";
 
 class List extends React.Component {
@@ -25,8 +26,12 @@ class List extends React.Component {
       return;
     }
     const { dispatch, list } = this.props;
-    dispatch(addTask(this.state.value, list.listID));
+    this.props.listActions.addTask(this.state.value, list.listID);
     this.setState({ value: "" });
+  }
+
+  onSave(id, val) {
+    this.props.listActions.editList(id, val);
   }
 
   render() {
@@ -34,7 +39,11 @@ class List extends React.Component {
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
-          <EditText value={list.title} />
+          <EditText
+            onSave={this.onSave.bind(this)}
+            id={list.listID}
+            value={list.title}
+          />
           <Card list={list} />
           <form onSubmit={this.handleSubmit}>
             <input
@@ -58,4 +67,13 @@ const mapStateToProps = state => ({
   lists: state.reducer
 });
 
-export default connect(mapStateToProps)(List);
+const mapDispatchToProps = dispatch => {
+  return {
+    listActions: bindActionCreators(Object.assign({}, actions), dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List);

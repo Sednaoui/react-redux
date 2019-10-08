@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actions from "../Actions/actionCreator";
+import * as actionsList from "../Actions/listActionCreator";
 import EditText from "./EditText";
 
 class List extends React.Component {
@@ -69,7 +70,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    listActions: bindActionCreators(Object.assign({}, actions), dispatch)
+    listActions: bindActionCreators(Object.assign({}, actionsList), dispatch)
   };
 };
 

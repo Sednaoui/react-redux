@@ -17,12 +17,6 @@ export const closeTask = (listId, cardId) => {
   };
 };
 
-export const editList = (listId, value) => ({
-  type: EDIT_LIST,
-  listId,
-  value
-});
-
 export const editCard = (listId, cardId, value) => ({
   type: EDIT_CARD,
   listId,
@@ -33,5 +27,4 @@ export const editCard = (listId, cardId, value) => ({
 // action type add a task
 export const ADD_TASK = "ADD_TASK";
 export const CLOSE_TASK = "CLOSE_TASK";
-export const EDIT_LIST = "EDIT_TASK";
 export const EDIT_CARD = "EDIT_CARD";

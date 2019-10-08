@@ -17,10 +17,11 @@ export const closeTask = (listId, cardId) => {
   };
 };
 
-export const editTask = (input, index) => ({
+export const editTask = (input, listId, cardId) => ({
   type: EDIT_TASK,
-  index,
-  input
+  input,
+  listId,
+  cardId
 });
 
 // action type add a task

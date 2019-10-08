@@ -13,7 +13,9 @@ const Card = props => {
   }
 
   function onSave(val, cardId) {
-    props.edit(val, list.listId, cardId);
+    // const { listID, id } = inputProps;
+    console.log(val);
+    props.edit(val, list.listID, cardId);
   }
 
   return (
@@ -23,7 +25,7 @@ const Card = props => {
           <EdiText
             type="text"
             value={card.text}
-            onSave={onSave.bind(this, card.id)}
+            onSave={onSave}
             editOnViewClick={true}
             showButtonsOnHover={true}
           />
@@ -47,7 +49,7 @@ Card.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     close: (listId, cardId) => store.dispatch(closeTask(listId, cardId)),
-    edit: (cardInput, index) => store.dispatch(editTask(cardInput, index))
+    edit: cardInput => store.dispatch(editTask(cardInput))
   };
 };
 

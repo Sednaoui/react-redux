@@ -52,6 +52,7 @@ const reducer = (state = initial_state, action) => {
 
     case "CLOSE_TASK":
       return state.map(list => {
+        console.log(action.listId);
         if (list.listID === action.listId) {
           return {
             ...list,
@@ -63,10 +64,25 @@ const reducer = (state = initial_state, action) => {
       });
 
     case "EDIT_TASK":
-      const statecopy = [...state];
-      const task = statecopy[action.index];
-      statecopy[action.index] = { ...task, text: action.input };
-      return statecopy;
+      return state.map(list => {
+        console.log(action);
+        if (
+          list.listID === action.listID &&
+          list.cards.id === action.payload.cardId
+        ) {
+          return {
+            ...list,
+            cards: [...list.cards]
+          };
+        } else {
+          return list;
+        }
+      });
+
+    // const statecopy = [...state];
+    // const task = statecopy[action.index];
+    // statecopy[action.index] = { ...task, text: action.input };
+    // return statecopy;
 
     case "ADD_LIST":
       const newList = {

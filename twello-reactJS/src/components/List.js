@@ -4,7 +4,6 @@ import "./List.css";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as actions from "../Actions/actionCreator";
 import * as actionsList from "../Actions/listActionCreator";
 import EditText from "./EditText";
 
@@ -26,7 +25,7 @@ class List extends React.Component {
     if (!this.state.value.trim()) {
       return;
     }
-    const { dispatch, list } = this.props;
+    const { list } = this.props;
     this.props.listActions.addTask(this.state.value, list.listID);
     this.setState({ value: "" });
   }

@@ -4,6 +4,7 @@ import "./List.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addTask } from "../Actions/actionCreator";
+import EditText from "./EditText";
 
 class List extends React.Component {
   constructor(props) {
@@ -30,11 +31,10 @@ class List extends React.Component {
 
   render() {
     const { list } = this.props;
-
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
-          <h3>{list.title}</h3>
+          <EditText value={list.title} />
           <Card list={list} />
           <form onSubmit={this.handleSubmit}>
             <input
@@ -50,11 +50,7 @@ class List extends React.Component {
   }
 }
 
-List.defaultProps = {
-  title: "List Name"
-};
 List.propTypes = {
-  title: PropTypes.string,
   listID: PropTypes.string
 };
 

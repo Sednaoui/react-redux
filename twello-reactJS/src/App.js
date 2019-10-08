@@ -4,6 +4,7 @@ import List from "./components/List";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
 import { addList } from "./Actions/listActionCreator";
+import Activity from "./components/Activity";
 
 class App extends React.Component {
   constructor(props) {
@@ -34,17 +35,20 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <Navbar />
-          {lists.map(list => (
-            <List type="todo" list={list} />
-          ))}
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Add List</button>
-          </form>
+          <div className="ListAndActivity">
+            {lists.map(list => (
+              <List type="todo" list={list} />
+            ))}
+            <Activity />
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+              <button type="submit">Add List</button>
+            </form>
+          </div>
         </header>
       </div>
     );

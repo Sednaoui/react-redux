@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionsList from "../Actions/listActionCreator";
+import * as actionsCard from "../Actions/actionCreator";
 import EditText from "./EditText";
 
 class List extends React.Component {
@@ -26,7 +27,7 @@ class List extends React.Component {
       return;
     }
     const { list } = this.props;
-    this.props.listActions.addTask(this.state.value, list.listID);
+    this.props.actionsCard.addTask(this.state.value, list.listID);
     this.setState({ value: "" });
   }
 
@@ -69,7 +70,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    listActions: bindActionCreators(Object.assign({}, actionsList), dispatch)
+    listActions: bindActionCreators(Object.assign({}, actionsList), dispatch),
+    actionsCard: bindActionCreators(Object.assign({}, actionsCard), dispatch)
   };
 };
 

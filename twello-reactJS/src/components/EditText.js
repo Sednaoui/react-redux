@@ -29,7 +29,6 @@ class EditText extends React.Component {
   handleChange = event => {
     this.setState({
       value: event.target.value
-      // value: this.refs.textinput.value
     });
   };
 
@@ -40,14 +39,11 @@ class EditText extends React.Component {
           <input
             type="text"
             value={this.state.value}
-            // ref="textinput"
             onChange={this.handleChange}
           />
           <input type="submit" value="OK" />
           <button onClick={this.changeEditMode}>X</button>
         </form>
-
-        {/* <button onClick={this.updateValue}> OK</button> */}
       </div>
     );
   };

@@ -63,7 +63,7 @@ const reducer = (state = initial_state, action) => {
         }
       });
 
-    case "EDIT_TASK":
+    case "EDIT_LIST":
       return state.map(list => {
         console.log(action);
         if (list.listID === action.listId) {

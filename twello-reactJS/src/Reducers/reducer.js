@@ -76,6 +76,23 @@ const reducer = (state = initial_state, action) => {
         }
       });
 
+    case "EDIT_CARD":
+      return state.map(list => {
+        if (list.listID === action.listId) {
+          return {
+            ...list,
+            cards: list.cards.map(card => {
+              if (card.id === action.cardId) {
+                return { ...card, text: action.value };
+              } else {
+                return card;
+              }
+            })
+          };
+        } else {
+          return list;
+        }
+      });
 
     case "ADD_LIST":
       const newList = {

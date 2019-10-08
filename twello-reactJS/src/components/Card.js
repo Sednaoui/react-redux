@@ -2,9 +2,9 @@ import React from "react";
 import "./card.css";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { closeTask, editTask } from "../Actions/actionCreator";
+import { closeTask, editCard } from "../Actions/actionCreator";
 import { store } from "../index";
-import EdiText from "react-editext";
+import EditText from "./EditText";
 
 const Card = props => {
   const { list } = props;
@@ -12,23 +12,15 @@ const Card = props => {
     props.close(list.listID, cardId);
   }
 
-  function onSave(val, cardId) {
-    // const { listID, id } = inputProps;
-    console.log(val);
-    props.edit(val, list.listID, cardId);
+  function onSave(id, val) {
+    props.edit(props.list.listID, id, val);
   }
 
   return (
     <div className="scrollList">
       {list.cards.map(card => (
         <div className="mycard">
-          <EdiText
-            type="text"
-            value={card.text}
-            onSave={onSave}
-            editOnViewClick={true}
-            showButtonsOnHover={true}
-          />
+          <EditText onSave={onSave} id={card.id} value={card.text} />
           <button type="button" onClick={handleClose.bind(this, card.id)}>
             X
           </button>
@@ -49,7 +41,8 @@ Card.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     close: (listId, cardId) => store.dispatch(closeTask(listId, cardId)),
-    edit: cardInput => store.dispatch(editTask(cardInput))
+    edit: (listId, cardId, value) =>
+      store.dispatch(editCard(listId, cardId, value))
   };
 };
 

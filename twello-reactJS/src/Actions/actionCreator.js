@@ -23,9 +23,15 @@ export const editList = (listId, value) => ({
   value
 });
 
+export const editCard = (listId, cardId, value) => ({
+  type: EDIT_CARD,
+  listId,
+  cardId,
+  value
 });
 
 // action type add a task
 export const ADD_TASK = "ADD_TASK";
 export const CLOSE_TASK = "CLOSE_TASK";
 export const EDIT_TASK = "EDIT_TASK";
+export const EDIT_CARD = "EDIT_CARD";

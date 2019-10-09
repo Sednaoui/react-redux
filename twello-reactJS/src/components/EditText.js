@@ -63,4 +63,8 @@ EditText.propTypes = {
   value: PropTypes.string
 };
 
+EditText.defaultProps = {
+  value: ""
+};
+
 export default EditText;

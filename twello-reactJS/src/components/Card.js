@@ -8,9 +8,6 @@ import EditText from "./EditText";
 
 const Card = props => {
   const { list } = props;
-  function handleClose(cardId) {
-    props.close(list.listID, cardId);
-  }
 
   return (
     <div className="scrollList">
@@ -22,7 +19,10 @@ const Card = props => {
             }}
             value={card.text}
           />
-          <button type="button" onClick={handleClose.bind(this, card.id)}>
+          <button
+            type="button"
+            onClick={() => props.close(list.listID, card.id)}
+          >
             X
           </button>
         </div>

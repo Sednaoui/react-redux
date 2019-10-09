@@ -22,7 +22,7 @@ class EditText extends React.Component {
     this.setState({
       isInEditMode: false
     });
-    this.props.onSave(this.props.id, this.state.value);
+    this.props.onSave(this.state.value);
   }
 
   handleChange = event => {

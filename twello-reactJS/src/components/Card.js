@@ -12,15 +12,16 @@ const Card = props => {
     props.close(list.listID, cardId);
   }
 
-  function onSave(id, val) {
-    props.edit(props.list.listID, id, val);
-  }
-
   return (
     <div className="scrollList">
       {list.cards.map(card => (
         <div className="mycard">
-          <EditText onSave={onSave} id={card.id} value={card.text} />
+          <EditText
+            onSave={val => {
+              props.edit(props.list.listID, card.id, val);
+            }}
+            value={card.text}
+          />
           <button type="button" onClick={handleClose.bind(this, card.id)}>
             X
           </button>

@@ -35,8 +35,7 @@ Card.defaultProps = {
   text: "This is a card"
 };
 Card.propTypes = {
-  text: PropTypes.string,
-  key: PropTypes.string
+  text: PropTypes.string
 };
 
 const mapDispatchToProps = dispatch => {

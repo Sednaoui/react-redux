@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 class EditText extends React.Component {
   constructor(props) {
     super(props);
@@ -57,5 +58,9 @@ class EditText extends React.Component {
       : this.renderDefaultView();
   }
 }
+
+EditText.propTypes = {
+  value: PropTypes.string
+};
 
 export default EditText;

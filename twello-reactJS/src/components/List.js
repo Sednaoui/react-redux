@@ -31,18 +31,15 @@ class List extends React.Component {
     this.setState({ value: "" });
   }
 
-  onSave(id, val) {
-    this.props.listActions.editList(id, val);
-  }
-
   render() {
     const { list } = this.props;
     return (
       <div className="myMainContainer">
         <div className="myContainer myList">
           <EditText
-            onSave={this.onSave.bind(this)}
-            id={list.listID}
+            onSave={val => {
+              this.props.listActions.editList(list.listID, val);
+            }}
             value={list.title}
           />
           <Card list={list} />

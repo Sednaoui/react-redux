@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 import reducer from "./reducer";
-// import listReducer from "./listReducer";
+import activityReducer from "./activityReducer";
 const rootReducer = combineReducers({
-  reducer
+  reducer,
+  activityReducer
 });
 
 export default rootReducer;

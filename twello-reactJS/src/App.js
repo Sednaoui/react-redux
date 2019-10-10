@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { lists } = this.props;
+    const { lists, activities } = this.props;
     return (
       <div className="App">
         <header className="App-header">
@@ -39,7 +39,11 @@ class App extends React.Component {
             {lists.map(list => (
               <List type="todo" list={list} />
             ))}
-            <Activity />
+            <Activity
+              activityProp={activities.map(activity => (
+                <li>{activity}</li>
+              ))}
+            />
             <form onSubmit={this.handleSubmit}>
               <input
                 type="text"
@@ -56,7 +60,8 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  lists: state.reducer
+  lists: state.reducer,
+  activities: state.activityReducer
 });
 
 export default connect(mapStateToProps)(App);

@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./components/List.css";
 import List from "./components/List";
 import Navbar from "./Navbar";
 import { connect } from "react-redux";
@@ -35,7 +36,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <Navbar />
-          <div className="ListAndActivity">
+          <div className="myMainContainer">
             {lists.map(list => (
               <List type="todo" list={list} />
             ))}

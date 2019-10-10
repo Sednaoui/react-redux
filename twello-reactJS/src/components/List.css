@@ -54,28 +54,28 @@ h3 {
 /*custom scroll bar*/
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
-  /*navigation bar header*/
-  
-  /* Add background color to top navbar */
-  .topnav {
-    background-color: #6D6875;
-    overflow: hidden;
-  }
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*navigation bar header*/
+
+/* Add background color to top navbar */
+.topnav {
+  background-color: #6d6875;
+  overflow: hidden;
+}

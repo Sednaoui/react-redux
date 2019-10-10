@@ -13,12 +13,18 @@ const activityReducer = (state = initial_Activity, action) => {
       return newStateList;
     case "EDIT_CARD":
       const editCard = action.value;
-      let newStateeditCard = state;
-      newStateeditCard.push(`You edited your card name to: ` + editCard);
+      let newStateEditCard = state;
+      newStateEditCard.push(`You edited your card name to: ` + editCard);
+      return newStateEditCard;
     case "EDIT_LIST":
       const editList = action.value;
-      let newStateeditList = state;
-      newStateeditList.push(`You edited your list name to: ` + editList);
+      let newStateEditList = state;
+      newStateEditList.push(`You edited your list name to: ` + editList);
+      return newStateEditList;
+    case "CLOSE_TASK":
+      let newStateCloseTask = state;
+      newStateCloseTask.push(`You closed your card`);
+      return newStateCloseTask;
     default:
       return state;
   }

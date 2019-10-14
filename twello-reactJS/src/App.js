@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import './Components/list.css';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import List from './Components/List';
 import Navbar from './Components/Navbar';
 import Activity from './Components/Activity';

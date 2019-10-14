@@ -3,7 +3,7 @@ import reducer from './reducer';
 import activityReducer from './activityReducer';
 const rootReducer = combineReducers({
     reducer,
-    activityReducer
+    activityReducer,
 });
 
 export default rootReducer;

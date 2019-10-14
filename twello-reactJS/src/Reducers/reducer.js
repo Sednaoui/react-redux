@@ -7,13 +7,13 @@ export const initial_state = [
         cards: [
             {
                 id: shortid.generate(),
-                text: 'Task1'
+                text: 'Task1',
             },
             {
                 id: shortid.generate(),
-                text: 'Task 2'
-            }
-        ]
+                text: 'Task 2',
+            },
+        ],
     },
     {
         title: 'List Name 2',
@@ -21,14 +21,14 @@ export const initial_state = [
         cards: [
             {
                 id: shortid.generate(),
-                text: 'Task3'
+                text: 'Task3',
             },
             {
                 id: shortid.generate(),
-                text: 'Task 4'
-            }
-        ]
-    }
+                text: 'Task 4',
+            },
+        ],
+    },
 ];
 
 const reducer = (state = initial_state, action) => {
@@ -36,13 +36,13 @@ const reducer = (state = initial_state, action) => {
         case 'ADD_TASK':
             const newCard = {
                 text: action.payload.text,
-                id: shortid.generate()
+                id: shortid.generate(),
             };
             const newState = state.map(list => {
                 if (list.listID === action.payload.listID) {
                     return {
                         ...list,
-                        cards: [...list.cards, newCard]
+                        cards: [...list.cards, newCard],
                     };
                 } else {
                     return list;
@@ -57,8 +57,8 @@ const reducer = (state = initial_state, action) => {
                     return {
                         ...list,
                         cards: list.cards.filter(
-                            card => card.id !== action.cardId
-                        )
+                            card => card.id !== action.cardId,
+                        ),
                     };
                 } else {
                     return list;
@@ -71,7 +71,7 @@ const reducer = (state = initial_state, action) => {
                 if (list.listID === action.listId) {
                     return {
                         ...list,
-                        title: action.value
+                        title: action.value,
                     };
                 } else {
                     return list;
@@ -89,7 +89,7 @@ const reducer = (state = initial_state, action) => {
                             } else {
                                 return card;
                             }
-                        })
+                        }),
                     };
                 } else {
                     return list;
@@ -100,7 +100,7 @@ const reducer = (state = initial_state, action) => {
             const newList = {
                 title: action.payload.title,
                 cards: [],
-                listID: shortid.generate()
+                listID: shortid.generate(),
             };
             return [...state, newList];
         default:

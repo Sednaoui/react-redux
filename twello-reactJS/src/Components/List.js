@@ -29,15 +29,15 @@ class List extends React.Component {
 }
 
 List.propTypes = {
-    listID: PropTypes.string
+    listID: PropTypes.string,
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         listActions: bindActionCreators(
             Object.assign({}, actionsList),
-            dispatch
-        )
+            dispatch,
+        ),
     };
 };
 

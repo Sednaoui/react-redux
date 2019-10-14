@@ -41,7 +41,7 @@ class addListComponent extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    lists: state.reducer
+    lists: state.reducer,
 });
 
 export default connect(mapStateToProps)(addListComponent);

@@ -5,7 +5,7 @@ class EditText extends React.Component {
         super(props);
         this.state = {
             value: this.props.value,
-            isInEditMode: false
+            isInEditMode: false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -14,21 +14,21 @@ class EditText extends React.Component {
 
     changeEditMode = () => {
         this.setState({
-            isInEditMode: !this.state.isInEditMode
+            isInEditMode: !this.state.isInEditMode,
         });
     };
 
     updateValue(event) {
         event.preventDefault();
         this.setState({
-            isInEditMode: false
+            isInEditMode: false,
         });
         this.props.onSave(this.state.value);
     }
 
     handleChange = event => {
         this.setState({
-            value: event.target.value
+            value: event.target.value,
         });
     };
 
@@ -60,11 +60,11 @@ class EditText extends React.Component {
 }
 
 EditText.propTypes = {
-    value: PropTypes.string
+    value: PropTypes.string,
 };
 
 EditText.defaultProps = {
-    value: ''
+    value: '',
 };
 
 export default EditText;

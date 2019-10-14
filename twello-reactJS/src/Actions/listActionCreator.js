@@ -1,14 +1,14 @@
 export const addList = (title, listID) => {
     return {
         type: ADD_LIST,
-        payload: { title, listID }
+        payload: { title, listID },
     };
 };
 
 export const editList = (listId, value) => ({
     type: EDIT_LIST,
     listId,
-    value
+    value,
 });
 
 export const ADD_LIST = 'ADD_LIST';

@@ -44,12 +44,12 @@ const mapDispatchToProps = dispatch => {
     return {
         actionsCard: bindActionCreators(
             Object.assign({}, actionsCard),
-            dispatch
-        )
+            dispatch,
+        ),
     };
 };
 
 export default connect(
     null,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(AddCardComponent);

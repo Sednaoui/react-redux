@@ -32,17 +32,17 @@ const Card = props => {
 };
 
 Card.defaultProps = {
-    text: 'This is a card'
+    text: 'This is a card',
 };
 Card.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         close: (listId, cardId) => store.dispatch(closeTask(listId, cardId)),
         edit: (listId, cardId, value) =>
-            store.dispatch(editCard(listId, cardId, value))
+            store.dispatch(editCard(listId, cardId, value)),
     };
 };
 

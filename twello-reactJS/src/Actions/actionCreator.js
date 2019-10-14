@@ -5,7 +5,7 @@ const shortid = require('shortid');
 export const addTask = (text, listID) => ({
     type: ADD_TASK,
     id: shortid.generate(),
-    payload: { text, listID }
+    payload: { text, listID },
 });
 
 //close task
@@ -13,7 +13,7 @@ export const closeTask = (listId, cardId) => {
     return {
         type: CLOSE_TASK,
         listId,
-        cardId
+        cardId,
     };
 };
 
@@ -21,7 +21,7 @@ export const editCard = (listId, cardId, value) => ({
     type: EDIT_CARD,
     listId,
     cardId,
-    value
+    value,
 });
 
 // action type add a task

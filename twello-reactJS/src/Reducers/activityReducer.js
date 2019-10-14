@@ -1,4 +1,5 @@
-const initialActivity = ['Welcome to new Twello Board'];
+import { initialActivity } from './initialConstants';
+
 const activityReducer = (state = initialActivity, action) => {
     const newState = state;
     const editCard = action.value;

@@ -1,35 +1,5 @@
 import shortid from 'shortid';
-
-const initialState = [
-    {
-        title: 'List Name 1',
-        listID: shortid.generate(),
-        cards: [
-            {
-                id: shortid.generate(),
-                text: 'Task1',
-            },
-            {
-                id: shortid.generate(),
-                text: 'Task 2',
-            },
-        ],
-    },
-    {
-        title: 'List Name 2',
-        listID: shortid.generate(),
-        cards: [
-            {
-                id: shortid.generate(),
-                text: 'Task3',
-            },
-            {
-                id: shortid.generate(),
-                text: 'Task 4',
-            },
-        ],
-    },
-];
+import { initialState } from './initialConstants';
 
 const reducer = (state = initialState, action) => {
     let newCard;

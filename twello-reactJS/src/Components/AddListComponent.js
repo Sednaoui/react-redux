@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addList } from '../Actions/listActionCreator';
+
 class addListComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -20,6 +21,7 @@ class addListComponent extends React.Component {
             return;
         }
         const { dispatch, listID } = this.props;
+
         dispatch(addList(this.state.value, listID));
         this.setState({ value: '' });
     }
@@ -31,16 +33,17 @@ class addListComponent extends React.Component {
                     <input
                         type="text"
                         value={this.state.value}
-                        onChange={this.handleChange}
-                    />
-                    <button type="submit">Add List</button>
+                        onChange={this.handleChange} />
+                    <button type="submit">
+Add List
+                    </button>
                 </form>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     lists: state.reducer,
 });
 

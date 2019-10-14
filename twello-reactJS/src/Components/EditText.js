@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 class EditText extends React.Component {
     constructor(props) {
         super(props);
@@ -26,31 +27,34 @@ class EditText extends React.Component {
         this.props.onSave(this.state.value);
     }
 
-    handleChange = event => {
+    handleChange = (event) => {
         this.setState({
             value: event.target.value,
         });
     };
 
-    renderEditView = () => {
-        return (
-            <div>
-                <form onSubmit={this.updateValue}>
-                    <input
-                        type="text"
-                        value={this.state.value}
-                        onChange={this.handleChange}
-                    />
-                    <input type="submit" value="OK" />
-                    <button onClick={this.changeEditMode}>X</button>
-                </form>
-            </div>
-        );
-    };
+    renderEditView = () => (
+        <div>
+            <form onSubmit={this.updateValue}>
+                <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={this.handleChange} />
+                <input
+                    type="submit"
+                    value="OK" />
+                <button onClick={this.changeEditMode}>
+X
+                </button>
+            </form>
+        </div>
+    );
 
-    renderDefaultView = () => {
-        return <h3 onDoubleClick={this.changeEditMode}>{this.state.value}</h3>;
-    };
+    renderDefaultView = () => (
+        <h3 onDoubleClick={this.changeEditMode}>
+            {this.state.value}
+        </h3>
+    );
 
     render() {
         return this.state.isInEditMode

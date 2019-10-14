@@ -1,7 +1,7 @@
 import React from 'react';
-import * as actionsCard from '../Actions/actionCreator';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actionsCard from '../Actions/actionCreator';
 
 class AddCardComponent extends React.Component {
     constructor(props) {
@@ -22,6 +22,7 @@ class AddCardComponent extends React.Component {
             return;
         }
         const { list } = this.props;
+
         this.props.actionsCard.addTask(this.state.value, list.listID);
         this.setState({ value: '' });
     }
@@ -32,22 +33,21 @@ class AddCardComponent extends React.Component {
                 <input
                     type="text"
                     value={this.state.value}
-                    onChange={this.handleChange}
-                />
-                <button type="submit">Add Card</button>
+                    onChange={this.handleChange} />
+                <button type="submit">
+Add Card
+                </button>
             </form>
         );
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        actionsCard: bindActionCreators(
-            Object.assign({}, actionsCard),
-            dispatch,
-        ),
-    };
-};
+const mapDispatchToProps = (dispatch) => ({
+    actionsCard: bindActionCreators(
+        { ...actionsCard },
+        dispatch,
+    ),
+});
 
 export default connect(
     null,

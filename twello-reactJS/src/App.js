@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import "./components/List.css";
-import List from "./components/List";
-import Navbar from "./components/Navbar";
+import "./Components/List.css";
+import List from "./Components/List";
+import Navbar from "./Components/Navbar";
 import { connect } from "react-redux";
 import { addList } from "./Actions/listActionCreator";
-import Activity from "./components/Activity";
+import Activity from "./Components/Activity";
 
 class App extends React.Component {
   constructor(props) {

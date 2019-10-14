@@ -1,12 +1,12 @@
-import React from "react";
-import Card from "./Card";
-import "./list.css";
-import PropTypes from "prop-types";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as actionsList from "../Actions/listActionCreator";
-import EditText from "./EditText";
-import AddCardComponent from "./AddCardComponent";
+import React from 'react';
+import Card from './Card';
+import './list.css';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionsList from '../Actions/listActionCreator';
+import EditText from './EditText';
+import AddCardComponent from './AddCardComponent';
 
 class List extends React.Component {
   render() {

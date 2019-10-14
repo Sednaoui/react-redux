@@ -1,31 +1,31 @@
-import shortid from "shortid";
+import shortid from 'shortid';
 
 export const initial_state = [
   {
-    title: "List Name 1",
+    title: 'List Name 1',
     listID: shortid.generate(),
     cards: [
       {
         id: shortid.generate(),
-        text: "Task1"
+        text: 'Task1'
       },
       {
         id: shortid.generate(),
-        text: "Task 2"
+        text: 'Task 2'
       }
     ]
   },
   {
-    title: "List Name 2",
+    title: 'List Name 2',
     listID: shortid.generate(),
     cards: [
       {
         id: shortid.generate(),
-        text: "Task3"
+        text: 'Task3'
       },
       {
         id: shortid.generate(),
-        text: "Task 4"
+        text: 'Task 4'
       }
     ]
   }
@@ -33,7 +33,7 @@ export const initial_state = [
 
 const reducer = (state = initial_state, action) => {
   switch (action.type) {
-    case "ADD_TASK":
+    case 'ADD_TASK':
       const newCard = {
         text: action.payload.text,
         id: shortid.generate()
@@ -50,7 +50,7 @@ const reducer = (state = initial_state, action) => {
       });
       return newState;
 
-    case "CLOSE_TASK":
+    case 'CLOSE_TASK':
       return state.map(list => {
         console.log(action.listId);
         if (list.listID === action.listId) {
@@ -63,7 +63,7 @@ const reducer = (state = initial_state, action) => {
         }
       });
 
-    case "EDIT_LIST":
+    case 'EDIT_LIST':
       return state.map(list => {
         console.log(action);
         if (list.listID === action.listId) {
@@ -76,7 +76,7 @@ const reducer = (state = initial_state, action) => {
         }
       });
 
-    case "EDIT_CARD":
+    case 'EDIT_CARD':
       return state.map(list => {
         if (list.listID === action.listId) {
           return {
@@ -94,7 +94,7 @@ const reducer = (state = initial_state, action) => {
         }
       });
 
-    case "ADD_LIST":
+    case 'ADD_LIST':
       const newList = {
         title: action.payload.title,
         cards: [],

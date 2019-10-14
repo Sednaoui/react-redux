@@ -1,10 +1,10 @@
-import React from "react";
-import "./card.css";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { closeTask, editCard } from "../Actions/actionCreator";
-import { store } from "../index";
-import EditText from "./EditText";
+import React from 'react';
+import './card.css';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { closeTask, editCard } from '../Actions/actionCreator';
+import { store } from '../index';
+import EditText from './EditText';
 
 const Card = props => {
   const { list } = props;
@@ -32,7 +32,7 @@ const Card = props => {
 };
 
 Card.defaultProps = {
-  text: "This is a card"
+  text: 'This is a card'
 };
 Card.propTypes = {
   text: PropTypes.string

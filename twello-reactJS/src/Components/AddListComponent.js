@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import { addList } from "../Actions/listActionCreator";
+import React from 'react';
+import { connect } from 'react-redux';
+import { addList } from '../Actions/listActionCreator';
 class addListComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,7 +21,7 @@ class addListComponent extends React.Component {
     }
     const { dispatch, listID } = this.props;
     dispatch(addList(this.state.value, listID));
-    this.setState({ value: "" });
+    this.setState({ value: '' });
   }
 
   render() {

@@ -1,11 +1,11 @@
-import React from "react";
-import "./App.css";
-import "./Components/list.css";
-import List from "./Components/List";
-import Navbar from "./Components/Navbar";
-import { connect } from "react-redux";
-import Activity from "./Components/Activity";
-import AddListComponent from "./Components/AddListComponent";
+import React from 'react';
+import './App.css';
+import './Components/list.css';
+import List from './Components/List';
+import Navbar from './Components/Navbar';
+import { connect } from 'react-redux';
+import Activity from './Components/Activity';
+import AddListComponent from './Components/AddListComponent';
 
 class App extends React.Component {
   render() {

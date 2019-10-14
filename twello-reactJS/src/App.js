@@ -4,32 +4,10 @@ import "./Components/List.css";
 import List from "./Components/List";
 import Navbar from "./Components/Navbar";
 import { connect } from "react-redux";
-import { addList } from "./Actions/listActionCreator";
 import Activity from "./Components/Activity";
+import AddListComponent from "./Components/AddListComponent";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    if (!this.state.value.trim()) {
-      return;
-    }
-    const { dispatch, listID } = this.props;
-    dispatch(addList(this.state.value, listID));
-    this.setState({ value: "" });
-  }
-
   render() {
     const { lists, activities } = this.props;
     return (
@@ -45,14 +23,7 @@ class App extends React.Component {
                 <li>{activity}</li>
               ))}
             />
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                value={this.state.value}
-                onChange={this.handleChange}
-              />
-              <button type="submit">Add List</button>
-            </form>
+            <AddListComponent />
           </div>
         </header>
       </div>

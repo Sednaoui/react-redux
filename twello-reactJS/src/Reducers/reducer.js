@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 
-export const initial_state = [
+const initial_state = [
     {
         title: 'List Name 1',
         listID: shortid.generate(),

@@ -1,4 +1,4 @@
-export const initial_Activity = ['Welcome to new Twello Board'];
+const initial_Activity = ['Welcome to new Twello Board'];
 const activityReducer = (state = initial_Activity, action) => {
     switch (action.type) {
         case 'ADD_TASK':

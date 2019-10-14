@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionsList from "../Actions/listActionCreator";
-// import * as actionsCard from "../Actions/actionCreator";
 import EditText from "./EditText";
 import AddCardComponent from "./AddCardComponent";
 

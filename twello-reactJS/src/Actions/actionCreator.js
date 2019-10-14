@@ -1,4 +1,8 @@
-//generate a short random id
+import {
+    ADD_TASK, CLOSE_TASK, EDIT_CARD,
+} from './Constants';
+
+// generate a short random id
 const shortid = require('shortid');
 
 // Action addTask
@@ -8,14 +12,12 @@ export const addTask = (text, listID) => ({
     payload: { text, listID },
 });
 
-//close task
-export const closeTask = (listId, cardId) => {
-    return {
-        type: CLOSE_TASK,
-        listId,
-        cardId,
-    };
-};
+// close task
+export const closeTask = (listId, cardId) => ({
+    type: CLOSE_TASK,
+    listId,
+    cardId,
+});
 
 export const editCard = (listId, cardId, value) => ({
     type: EDIT_CARD,
@@ -24,7 +26,3 @@ export const editCard = (listId, cardId, value) => ({
     value,
 });
 
-// action type add a task
-export const ADD_TASK = 'ADD_TASK';
-export const CLOSE_TASK = 'CLOSE_TASK';
-export const EDIT_CARD = 'EDIT_CARD';

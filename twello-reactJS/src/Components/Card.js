@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import {
     closeTask, editCard,
 } from '../Actions/actionCreator';
-import { store } from '../index';
 import EditText from './EditText';
 import { bindActionCreators } from 'redux';
 

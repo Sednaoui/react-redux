@@ -9,33 +9,36 @@ import EditText from './EditText';
 import AddCardComponent from './AddCardComponent';
 
 class List extends React.Component {
-  render() {
-    const { list } = this.props;
-    return (
-      <div className="myMainContainer">
-        <div className="myContainer myList">
-          <EditText
-            onSave={val => {
-              this.props.listActions.editList(list.listID, val);
-            }}
-            value={list.title}
-          />
-          <Card list={list} />
-          <AddCardComponent list={list} />
-        </div>
-      </div>
-    );
-  }
+    render() {
+        const { list } = this.props;
+        return (
+            <div className="myMainContainer">
+                <div className="myContainer myList">
+                    <EditText
+                        onSave={val => {
+                            this.props.listActions.editList(list.listID, val);
+                        }}
+                        value={list.title}
+                    />
+                    <Card list={list} />
+                    <AddCardComponent list={list} />
+                </div>
+            </div>
+        );
+    }
 }
 
 List.propTypes = {
-  listID: PropTypes.string
+    listID: PropTypes.string
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    listActions: bindActionCreators(Object.assign({}, actionsList), dispatch)
-  };
+    return {
+        listActions: bindActionCreators(
+            Object.assign({}, actionsList),
+            dispatch
+        )
+    };
 };
 
 export default connect(mapDispatchToProps)(List);

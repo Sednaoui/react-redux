@@ -1,19 +1,19 @@
 * {
-  box-sizing: border-box;
-  font-size: 100%;
-  font-family: "Work Sans", sans-serif;
+    box-sizing: border-box;
+    font-size: 100%;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .mycard {
-  background-color: #ffcdb2;
-  border-radius: 10px;
-  width: 80%;
-  margin: 5px;
-  border: solid thin white;
-  display: inline-flex;
-  justify-content: space-between;
+    background-color: #ffcdb2;
+    border-radius: 10px;
+    width: 80%;
+    margin: 5px;
+    border: solid thin white;
+    display: inline-flex;
+    justify-content: space-between;
 }
 
 .mycard:hover {
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
 }

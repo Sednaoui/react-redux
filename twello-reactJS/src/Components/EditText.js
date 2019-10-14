@@ -1,70 +1,70 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 class EditText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.value,
-      isInEditMode: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: this.props.value,
+            isInEditMode: false
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.updateValue = this.updateValue.bind(this);
+    }
+
+    changeEditMode = () => {
+        this.setState({
+            isInEditMode: !this.state.isInEditMode
+        });
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.updateValue = this.updateValue.bind(this);
-  }
+    updateValue(event) {
+        event.preventDefault();
+        this.setState({
+            isInEditMode: false
+        });
+        this.props.onSave(this.state.value);
+    }
 
-  changeEditMode = () => {
-    this.setState({
-      isInEditMode: !this.state.isInEditMode
-    });
-  };
+    handleChange = event => {
+        this.setState({
+            value: event.target.value
+        });
+    };
 
-  updateValue(event) {
-    event.preventDefault();
-    this.setState({
-      isInEditMode: false
-    });
-    this.props.onSave(this.state.value);
-  }
+    renderEditView = () => {
+        return (
+            <div>
+                <form onSubmit={this.updateValue}>
+                    <input
+                        type="text"
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                    />
+                    <input type="submit" value="OK" />
+                    <button onClick={this.changeEditMode}>X</button>
+                </form>
+            </div>
+        );
+    };
 
-  handleChange = event => {
-    this.setState({
-      value: event.target.value
-    });
-  };
+    renderDefaultView = () => {
+        return <h3 onDoubleClick={this.changeEditMode}>{this.state.value}</h3>;
+    };
 
-  renderEditView = () => {
-    return (
-      <div>
-        <form onSubmit={this.updateValue}>
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="OK" />
-          <button onClick={this.changeEditMode}>X</button>
-        </form>
-      </div>
-    );
-  };
-
-  renderDefaultView = () => {
-    return <h3 onDoubleClick={this.changeEditMode}>{this.state.value}</h3>;
-  };
-
-  render() {
-    return this.state.isInEditMode
-      ? this.renderEditView()
-      : this.renderDefaultView();
-  }
+    render() {
+        return this.state.isInEditMode
+            ? this.renderEditView()
+            : this.renderDefaultView();
+    }
 }
 
 EditText.propTypes = {
-  value: PropTypes.string
+    value: PropTypes.string
 };
 
 EditText.defaultProps = {
-  value: ''
+    value: ''
 };
 
 export default EditText;

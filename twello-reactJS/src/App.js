@@ -8,32 +8,32 @@ import Activity from './Components/Activity';
 import AddListComponent from './Components/AddListComponent';
 
 class App extends React.Component {
-  render() {
-    const { lists, activities } = this.props;
-    return (
-      <div className="App">
-        <header className="App-header">
-          <Navbar />
-          <div className="myMainContainer">
-            {lists.map(list => (
-              <List type="todo" list={list} />
-            ))}
-            <Activity
-              activityProp={activities.map(activity => (
-                <li>{activity}</li>
-              ))}
-            />
-            <AddListComponent />
-          </div>
-        </header>
-      </div>
-    );
-  }
+    render() {
+        const { lists, activities } = this.props;
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <Navbar />
+                    <div className="myMainContainer">
+                        {lists.map(list => (
+                            <List type="todo" list={list} />
+                        ))}
+                        <Activity
+                            activityProp={activities.map(activity => (
+                                <li>{activity}</li>
+                            ))}
+                        />
+                        <AddListComponent />
+                    </div>
+                </header>
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = state => ({
-  lists: state.reducer,
-  activities: state.activityReducer
+    lists: state.reducer,
+    activities: state.activityReducer
 });
 
 export default connect(mapStateToProps)(App);

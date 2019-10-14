@@ -1,16 +1,16 @@
 .App {
-  /* text-align: center; */
+    /* text-align: center; */
 }
 
 .App-header {
-  background-color: rgb(247, 225, 220);
-  min-height: 100vh;
+    background-color: rgb(247, 225, 220);
+    min-height: 100vh;
 }
 
 .App-link {
-  color: #09d3ac;
+    color: #09d3ac;
 }
 
 .ListAndActivity {
-  display: flex;
+    display: flex;
 }

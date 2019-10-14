@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "./components/List.css";
 import List from "./components/List";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import { connect } from "react-redux";
 import { addList } from "./Actions/listActionCreator";
 import Activity from "./components/Activity";

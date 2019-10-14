@@ -2,11 +2,11 @@ import React from 'react';
 import './card.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {
     closeTask, editCard,
 } from '../Actions/actionCreator';
 import EditText from './EditText';
-import { bindActionCreators } from 'redux';
 
 const Card = (props) => {
     const { list } = props;
@@ -39,7 +39,7 @@ Card.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    cardActions: bindActionCreators({closeTask,editCard},dispatch),
+    cardActions: bindActionCreators({ closeTask, editCard }, dispatch),
 });
 
-export default connect(null,mapDispatchToProps)(Card);
+export default connect(null, mapDispatchToProps)(Card);

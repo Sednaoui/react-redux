@@ -19,7 +19,7 @@ const activityReducer = (state = initialActivity, action) => {
         newState.push('You edited your list name to: ' + editList);
         return newState;
     case 'CLOSE_TASK':
-            newState.push('You closed your card');
+        newState.push('You closed your card');
         return newState;
     default:
         return state;

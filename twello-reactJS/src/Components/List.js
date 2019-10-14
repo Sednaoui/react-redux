@@ -5,32 +5,11 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actionsList from "../Actions/listActionCreator";
-import * as actionsCard from "../Actions/actionCreator";
+// import * as actionsCard from "../Actions/actionCreator";
 import EditText from "./EditText";
+import AddCardComponent from "./AddCardComponent";
 
 class List extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    if (!this.state.value.trim()) {
-      return;
-    }
-    const { list } = this.props;
-    this.props.actionsCard.addTask(this.state.value, list.listID);
-    this.setState({ value: "" });
-  }
-
   render() {
     const { list } = this.props;
     return (
@@ -43,14 +22,7 @@ class List extends React.Component {
             value={list.title}
           />
           <Card list={list} />
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-            <button type="submit">Add Card</button>
-          </form>
+          <AddCardComponent list={list} />
         </div>
       </div>
     );
@@ -61,18 +33,10 @@ List.propTypes = {
   listID: PropTypes.string
 };
 
-const mapStateToProps = state => ({
-  lists: state.reducer
-});
-
 const mapDispatchToProps = dispatch => {
   return {
-    listActions: bindActionCreators(Object.assign({}, actionsList), dispatch),
-    actionsCard: bindActionCreators(Object.assign({}, actionsCard), dispatch)
+    listActions: bindActionCreators(Object.assign({}, actionsList), dispatch)
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(List);
+export default connect(mapDispatchToProps)(List);

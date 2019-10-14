@@ -1,5 +1,5 @@
-const initial_activity = ['Welcome to new Twello Board'];
-const activityReducer = (state = initial_activity, action) => {
+const initialActivity = ['Welcome to new Twello Board'];
+const activityReducer = (state = initialActivity, action) => {
     switch (action.type) {
         case 'ADD_TASK':
             const newCardAdded = action.payload.text;

@@ -14,8 +14,12 @@ class EditText extends React.Component {
     }
 
     changeEditMode = () => {
+        this.setState((prevState) => ({ isInEditMode: !prevState.isInEditMode }));
+    };
+
+    handleChange = (event) => {
         this.setState({
-            isInEditMode: !this.state.isInEditMode,
+            value: event.target.value,
         });
     };
 
@@ -27,12 +31,6 @@ class EditText extends React.Component {
         this.props.onSave(this.state.value);
     }
 
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value,
-        });
-    };
-
     renderEditView = () => (
         <div>
             <form onSubmit={this.updateValue}>
@@ -43,7 +41,9 @@ class EditText extends React.Component {
                 <input
                     type="submit"
                     value="OK" />
-                <button onClick={this.changeEditMode}>
+                <button
+                    type="button"
+                    onClick={this.changeEditMode}>
 X
                 </button>
             </form>

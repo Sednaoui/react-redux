@@ -38,7 +38,7 @@ Card.propTypes = {
     text: PropTypes.string,
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = () => ({
     close: (listId, cardId) => store.dispatch(closeTask(listId, cardId)),
     edit: (listId, cardId, value) =>
         store.dispatch(editCard(listId, cardId, value)),

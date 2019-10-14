@@ -3,14 +3,16 @@ const activityReducer = (state = initialActivity, action) => {
     const newState = state;
     const editCard = action.value;
     const editList = action.value;
-    const newCardAdded = action.text;
-    const newListAdded = action.title;
+    let newCardAdded;
+    let newListAdded;
 
     switch (action.type) {
     case 'ADD_TASK':
+        newCardAdded = action.payload.text;
         newState.push(`You created a new Card: ${newCardAdded}`);
         return newState;
     case 'ADD_LIST':
+        newListAdded = action.payload.title;
         newState.push(`You created a new List: ${newListAdded}`);
         return newState;
     case 'EDIT_CARD':

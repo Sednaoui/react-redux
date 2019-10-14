@@ -7,6 +7,7 @@ import {
 } from '../Actions/actionCreator';
 import { store } from '../index';
 import EditText from './EditText';
+import { bindActionCreators } from 'redux';
 
 const Card = (props) => {
     const { list } = props;
@@ -17,12 +18,12 @@ const Card = (props) => {
                 <div className="mycard">
                     <EditText
                         onSave={(val) => {
-                            props.edit(props.list.listID, card.id, val);
+                            props.cardActions.editCard(props.list.listID, card.id, val);
                         }}
                         value={card.text} />
                     <button
                         type="button"
-                        onClick={() => props.close(list.listID, card.id)}>
+                        onClick={() => props.cardActions.closeTask(list.listID, card.id)}>
                         X
                     </button>
                 </div>
@@ -38,10 +39,8 @@ Card.propTypes = {
     text: PropTypes.string,
 };
 
-const mapDispatchToProps = () => ({
-    close: (listId, cardId) => store.dispatch(closeTask(listId, cardId)),
-    edit: (listId, cardId, value) =>
-        store.dispatch(editCard(listId, cardId, value)),
+const mapDispatchToProps = (dispatch) => ({
+    cardActions: bindActionCreators({closeTask,editCard},dispatch),
 });
 
-export default connect(mapDispatchToProps)(Card);
+export default connect(null,mapDispatchToProps)(Card);

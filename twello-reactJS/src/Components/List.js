@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import "./List.css";
+import "./list.css";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";

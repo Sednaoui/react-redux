@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import "./Components/List.css";
+import "./Components/list.css";
 import List from "./Components/List";
 import Navbar from "./Components/Navbar";
 import { connect } from "react-redux";

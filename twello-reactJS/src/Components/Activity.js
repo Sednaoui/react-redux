@@ -1,5 +1,5 @@
 import React from "react";
-import "./List.css";
+import "./list.css";
 import "./activity.css";
 
 const Activity = props => {

@@ -7,7 +7,7 @@ const reducer = (state = initialState, action) => {
     let newList;
 
     switch (action.type) {
-    case 'ADD_TASK':
+    case 'ADD_CARD':
         newCard = {
             text: action.payload.text,
             id: shortid.generate(),
@@ -25,7 +25,7 @@ const reducer = (state = initialState, action) => {
 
         return newState;
 
-    case 'CLOSE_TASK':
+    case 'CLOSE_CARD':
         return state.map((list) => {
             if (list.listID === action.listId) {
                 return {

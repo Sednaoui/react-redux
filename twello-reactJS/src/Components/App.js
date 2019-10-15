@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
-import './Components/Styles/list.css';
+import './Styles/App.css';
+import './Styles/list.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import List from './Components/List';
-import Navbar from './Components/Navbar';
-import Activity from './Components/Activity';
-import AddListComponent from './Components/AddListComponent';
+import List from './List';
+import Navbar from './Navbar';
+import Activity from './Activity';
+import AddListComponent from './AddListComponent';
 
 const App = (props) => {
     const { lists, activities } = props;

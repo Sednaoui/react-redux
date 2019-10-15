@@ -1,5 +1,5 @@
 import React from 'react';
-import './list.css';
+import './Styles/list.css';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

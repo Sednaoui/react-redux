@@ -1,6 +1,6 @@
 import React from 'react';
-import './list.css';
-import './activity.css';
+import './Styles/list.css';
+import './Styles/activity.css';
 
 const Activity = (props) => {
     const { activityProp } = props;

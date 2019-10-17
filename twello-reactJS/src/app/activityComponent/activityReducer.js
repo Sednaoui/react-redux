@@ -1,7 +1,6 @@
 import { initialActivity } from '../Reducers/initialConstants';
 
 const activityReducer = (state = initialActivity, action) => {
-    const newState = state.activities;
     const {activities} = state
     let newCardAdded;
     let newListAdded;
@@ -35,9 +34,11 @@ const activityReducer = (state = initialActivity, action) => {
             {activityName:`You edited your list name to: ${editList}`, activityID:action.payload.activityID}
         } };
 
-    // case 'CLOSE_CARD':
-    //     newState.push('You closed your card');
-    //     return { ...state, activityList: newState };
+    case 'CLOSE_CARD':
+        return { ...state, activities: {
+            ...activities, [action.payload.activityID]: 
+            {activityName:`You deleted your card`, activityID:action.payload.activityID}
+        } };
     default:
         return state;
     }

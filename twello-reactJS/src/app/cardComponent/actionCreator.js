@@ -10,7 +10,7 @@ export const addTask = (text, listID) => ({
 // close task
 export const closeTask = (listID, cardID) => ({
     type: Constants.CLOSE_CARD,
-    payload: { cardID, listID },
+    payload: { cardID, listID, activityID: shortid.generate()  },
 });
 
 export const editCard = (listID, cardID, value) => ({

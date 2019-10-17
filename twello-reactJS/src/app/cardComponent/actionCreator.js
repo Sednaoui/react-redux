@@ -15,6 +15,6 @@ export const closeTask = (listID, cardID) => ({
 
 export const editCard = (listID, cardID, value) => ({
     type: Constants.EDIT_CARD,
-    payload: { listID, cardID, value },
+    payload: { listID, cardID, value, activityID: shortid.generate() },
 });
 

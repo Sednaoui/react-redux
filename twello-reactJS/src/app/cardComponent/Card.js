@@ -15,7 +15,7 @@ const Card = (props) => {
     return (
         <div className="scrollList">
             {cardListIds.map((cardId) => (
-                <div className="mycard">
+                <div className="mycard" key={cardId}>
                     <EditText
                         onSave={(val) => {
                             props.cardActions.editCard(props.list.listID, cardId.cardID, val);

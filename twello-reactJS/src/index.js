@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './Components/App';
+import App from './app/App';
 import * as serviceWorker from './serviceWorker';
-import rootReducer from './Reducers/mainReducer';
+import rootReducer from './app/Reducers/mainReducer';
 
 export const store = createStore(
     rootReducer,

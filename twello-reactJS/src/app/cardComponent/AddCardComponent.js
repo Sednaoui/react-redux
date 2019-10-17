@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionsCard from '../Actions/actionCreator';
+import PropTypes from 'prop-types';
+import * as actionsCard from './actionCreator';
 
 class AddCardComponent extends React.Component {
     constructor(props) {
@@ -17,22 +18,25 @@ class AddCardComponent extends React.Component {
     }
 
     handleSubmit(e) {
+        const { value } = this.state;
+        const { list, actionsCard } = this.props;
+
         e.preventDefault();
-        if (!this.state.value.trim()) {
+        if (!value.trim()) {
             return;
         }
-        const { list } = this.props;
-
-        this.props.actionsCard.addTask(this.state.value, list.listID);
+        actionsCard.addTask(value, list.listID);
         this.setState({ value: '' });
     }
 
     render() {
+        const { value } = this.state;
+
         return (
             <form onSubmit={this.handleSubmit}>
                 <input
                     type="text"
-                    value={this.state.value}
+                    value={value}
                     onChange={this.handleChange} />
                 <button type="submit">
 Add Card
@@ -41,6 +45,16 @@ Add Card
         );
     }
 }
+
+AddCardComponent.propTypes = {
+    list: PropTypes.objectOf(PropTypes.any),
+    actionsCard: PropTypes.objectOf(PropTypes.any),
+};
+
+AddCardComponent.defaultProps = {
+    list: {},
+    actionsCard: {},
+};
 
 const mapDispatchToProps = (dispatch) => ({
     actionsCard: bindActionCreators(

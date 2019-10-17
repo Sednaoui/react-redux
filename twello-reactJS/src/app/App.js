@@ -9,9 +9,9 @@ import Activity from './activityComponent/Activity';
 import AddListComponent from './listComponent/AddListComponent';
 
 const App = (props) => {
-    const { lists, activityList } = props;
+    const { lists, activities } = props;
     const listIds = Object.keys(lists);
-
+    const activityIds = Object.keys(activities)
     return (
         <div className="App">
             <header className="App-header">
@@ -24,9 +24,9 @@ const App = (props) => {
                             key={listId} />
                     ))}
                     <Activity
-                        activityProp={activityList.map((activity) => (
+                        activityProp={activityIds.map((activityId) => (
                             <li>
-                                {activity}
+                                {activities[activityId].activityName}
                             </li>
                         ))} />
                     <AddListComponent />
@@ -38,17 +38,17 @@ const App = (props) => {
 
 const mapStateToProps = (state) => ({
     lists: state.listReducer.lists,
-    activityList: state.activityReducer.activityList,
+    activities: state.activityReducer.activities,
 });
 
 App.propTypes = {
     lists: PropTypes.objectOf(PropTypes.any),
-    activityList: PropTypes.arrayOf(PropTypes.string),
+    // activityList: PropTypes.arrayOf(PropTypes.string),
 };
 
 App.defaultProps = {
     lists: {},
-    activityList: [],
+    // activityList: [],
 };
 
 export default connect(mapStateToProps)(App);

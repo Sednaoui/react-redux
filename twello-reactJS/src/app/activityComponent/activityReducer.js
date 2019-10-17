@@ -1,30 +1,32 @@
-import { initialActivity } from './initialConstants';
+import { initialActivity } from '../Reducers/initialConstants';
 
 const activityReducer = (state = initialActivity, action) => {
-    const newState = state;
-    const editCard = action.value;
-    const editList = action.value;
+    const newState = state.activityList;
     let newCardAdded;
     let newListAdded;
+    let editCard;
+    let editList;
 
     switch (action.type) {
-    case 'ADD_TASK':
+    case 'ADD_CARD':
         newCardAdded = action.payload.text;
         newState.push(`You created a new Card: ${newCardAdded}`);
-        return newState;
+        return { ...state, activityList: newState };
     case 'ADD_LIST':
         newListAdded = action.payload.title;
         newState.push(`You created a new List: ${newListAdded}`);
-        return newState;
+        return { ...state, activityList: newState };
     case 'EDIT_CARD':
+        editCard = action.payload.value;
         newState.push(`You edited your card name to: ${editCard}`);
-        return newState;
+        return { ...state, activityList: newState };
     case 'EDIT_LIST':
+        editList = action.payload.value;
         newState.push(`You edited your list name to: ${editList}`);
-        return newState;
-    case 'CLOSE_TASK':
+        return { ...state, activityList: newState };
+    case 'CLOSE_CARD':
         newState.push('You closed your card');
-        return newState;
+        return { ...state, activityList: newState };
     default:
         return state;
     }

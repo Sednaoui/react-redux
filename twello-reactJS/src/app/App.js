@@ -25,7 +25,7 @@ const App = (props) => {
                     ))}
                     <Activity
                         activityProp={activityIds.map((activityId) => (
-                            <li>
+                            <li key = {activityId}>
                                 {activities[activityId].activityName}
                             </li>
                         ))} />

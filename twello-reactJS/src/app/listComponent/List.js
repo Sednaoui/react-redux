@@ -1,12 +1,12 @@
 import React from 'react';
-import './Styles/list.css';
+import './list.css';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Card from './Card';
-import * as actionsList from '../Actions/listActionCreator';
-import EditText from './EditText';
-import AddCardComponent from './AddCardComponent';
+import Card from '../cardComponent/Card';
+import * as actionsList from './listActionCreator';
+import EditText from '../EditTextComponent/EditText';
+import AddCardComponent from '../cardComponent/AddCardComponent';
 
 const List = (props) => {
     const { list } = props;
@@ -28,6 +28,14 @@ const List = (props) => {
 
 List.propTypes = {
     listID: PropTypes.string,
+    list: PropTypes.objectOf(PropTypes.any),
+    listActions: PropTypes.objectOf(PropTypes.any),
+};
+
+List.defaultProps = {
+    listID: '',
+    list: {},
+    listActions: {},
 };
 
 const mapDispatchToProps = (dispatch) => ({

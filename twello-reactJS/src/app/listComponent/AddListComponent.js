@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addList } from '../Actions/listActionCreator';
+import PropTypes from 'prop-types';
+import { addList } from './listActionCreator';
 
 class addListComponent extends React.Component {
     constructor(props) {
@@ -16,23 +17,27 @@ class addListComponent extends React.Component {
     }
 
     handleSubmit(e) {
+        const { value } = this.state;
+
         e.preventDefault();
-        if (!this.state.value.trim()) {
+        if (!value.trim()) {
             return;
         }
-        const { dispatch, listID } = this.props;
+        const { dispatch } = this.props;
 
-        dispatch(addList(this.state.value, listID));
+        dispatch(addList(value));
         this.setState({ value: '' });
     }
 
     render() {
+        const { value } = this.state;
+
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"
-                        value={this.state.value}
+                        value={value}
                         onChange={this.handleChange} />
                     <button type="submit">
 Add List
@@ -42,6 +47,15 @@ Add List
         );
     }
 }
+
+addListComponent.propTypes = {
+    dispatch: PropTypes.func,
+
+};
+
+addListComponent.defaultProps = {
+    dispatch: () => {},
+};
 
 const mapStateToProps = (state) => ({
     lists: state.reducer,

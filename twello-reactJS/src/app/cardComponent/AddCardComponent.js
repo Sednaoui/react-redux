@@ -19,6 +19,7 @@ class AddCardComponent extends React.Component {
 
     handleSubmit(e) {
         const { value } = this.state;
+        // eslint-disable-next-line no-shadow
         const { list, actionsCard } = this.props;
 
         e.preventDefault();

@@ -9,5 +9,6 @@ export const addList = (title) => ({
 export const editList = (listID, value) => ({
     type: Constants.EDIT_LIST,
     payload: { listID,
-        value , activityID: shortid.generate()},
+        value,
+        activityID: shortid.generate() },
 });

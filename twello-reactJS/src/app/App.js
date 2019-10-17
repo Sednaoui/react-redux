@@ -11,7 +11,8 @@ import AddListComponent from './listComponent/AddListComponent';
 const App = (props) => {
     const { lists, activities } = props;
     const listIds = Object.keys(lists);
-    const activityIds = Object.keys(activities)
+    const activityIds = Object.keys(activities);
+
     return (
         <div className="App">
             <header className="App-header">
@@ -25,7 +26,7 @@ const App = (props) => {
                     ))}
                     <Activity
                         activityProp={activityIds.map((activityId) => (
-                            <li key = {activityId}>
+                            <li key={activityId}>
                                 {activities[activityId].activityName}
                             </li>
                         ))} />

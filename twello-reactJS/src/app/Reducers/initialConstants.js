@@ -15,7 +15,7 @@ export const initialActivity = {
             activityName: 'Welcome to new Twello Board',
             activityID: activityId,
         },
-    }
+    },
 };
 
 export const listInitialState = {

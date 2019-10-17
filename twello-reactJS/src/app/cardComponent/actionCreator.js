@@ -4,13 +4,13 @@ import Constants from './Constants';
 // Action addTask
 export const addTask = (text, listID) => ({
     type: Constants.ADD_CARD,
-    payload: { text, listID, cardID: shortid.generate(), activityID: shortid.generate()  },
+    payload: { text, listID, cardID: shortid.generate(), activityID: shortid.generate() },
 });
 
 // close task
 export const closeTask = (listID, cardID) => ({
     type: Constants.CLOSE_CARD,
-    payload: { cardID, listID, activityID: shortid.generate()  },
+    payload: { cardID, listID, activityID: shortid.generate() },
 });
 
 export const editCard = (listID, cardID, value) => ({

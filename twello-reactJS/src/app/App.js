@@ -44,12 +44,12 @@ const mapStateToProps = (state) => ({
 
 App.propTypes = {
     lists: PropTypes.objectOf(PropTypes.any),
-    // activityList: PropTypes.arrayOf(PropTypes.string),
+    activities: PropTypes.objectOf(PropTypes.any),
 };
 
 App.defaultProps = {
     lists: {},
-    // activityList: [],
+    activities: {},
 };
 
 export default connect(mapStateToProps)(App);

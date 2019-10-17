@@ -28,10 +28,13 @@ const activityReducer = (state = initialActivity, action) => {
             {activityName:`You edited your card name to: ${editCard}`, activityID:action.payload.activityID}
         } };
 
-    // case 'EDIT_LIST':
-    //     editList = action.payload.value;
-    //     newState.push(`You edited your list name to: ${editList}`);
-    //     return { ...state, activityList: newState };
+    case 'EDIT_LIST':
+        editList = action.payload.value;
+        return { ...state, activities: {
+            ...activities, [action.payload.activityID]: 
+            {activityName:`You edited your list name to: ${editList}`, activityID:action.payload.activityID}
+        } };
+
     // case 'CLOSE_CARD':
     //     newState.push('You closed your card');
     //     return { ...state, activityList: newState };

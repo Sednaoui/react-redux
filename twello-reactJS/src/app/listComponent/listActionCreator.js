@@ -3,7 +3,7 @@ import Constants from './Constants';
 
 export const addList = (title) => ({
     type: Constants.ADD_LIST,
-    payload: { title, listID: shortid.generate(), cards: [] },
+    payload: { title, listID: shortid.generate(), cards: [], activityID: shortid.generate() },
 });
 
 export const editList = (listID, value) => ({

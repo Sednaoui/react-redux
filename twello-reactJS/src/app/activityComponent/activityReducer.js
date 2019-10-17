@@ -13,7 +13,8 @@ const activityReducer = (state = initialActivity, action) => {
         return { ...state,
             activities: { ...activities,
                 [action.payload.activityID]:
-                { activityName: `You created a new Card: ${newCardAdded}`, activityID: action.payload.activityID } } };
+                { activityName: `You created a new Card: ${newCardAdded}`,
+                    activityID: action.payload.activityID } } };
 
     case 'ADD_LIST':
         newListAdded = action.payload.title;
@@ -21,7 +22,8 @@ const activityReducer = (state = initialActivity, action) => {
             activities: {
                 ...activities,
                 [action.payload.activityID]:
-            { activityName: `You created a new List: ${newListAdded}`, activityID: action.payload.activityID },
+            { activityName: `You created a new List: ${newListAdded}`,
+                activityID: action.payload.activityID },
             } };
     case 'EDIT_CARD':
         editCard = action.payload.value;
@@ -29,7 +31,8 @@ const activityReducer = (state = initialActivity, action) => {
             activities: {
                 ...activities,
                 [action.payload.activityID]:
-            { activityName: `You edited your card name to: ${editCard}`, activityID: action.payload.activityID },
+            { activityName: `You edited your card name to: ${editCard}`,
+                activityID: action.payload.activityID },
             } };
 
     case 'EDIT_LIST':
@@ -38,7 +41,8 @@ const activityReducer = (state = initialActivity, action) => {
             activities: {
                 ...activities,
                 [action.payload.activityID]:
-            { activityName: `You edited your list name to: ${editList}`, activityID: action.payload.activityID },
+            { activityName: `You edited your list name to: ${editList}`,
+                activityID: action.payload.activityID },
             } };
 
     case 'CLOSE_CARD':
@@ -46,7 +50,8 @@ const activityReducer = (state = initialActivity, action) => {
             activities: {
                 ...activities,
                 [action.payload.activityID]:
-            { activityName: 'You deleted your card', activityID: action.payload.activityID },
+            { activityName: 'You deleted your card',
+                activityID: action.payload.activityID },
             } };
     default:
         return state;

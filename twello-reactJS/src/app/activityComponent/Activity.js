@@ -1,6 +1,7 @@
 import React from 'react';
-import './Styles/list.css';
-import './Styles/activity.css';
+import '../listComponent/list.css';
+import './activity.css';
+import PropTypes from 'prop-types';
 
 const Activity = (props) => {
     const { activityProp } = props;
@@ -24,4 +25,11 @@ My activity
     );
 };
 
+Activity.propTypes = {
+    activityProp: PropTypes.arrayOf(PropTypes.any),
+};
+
+Activity.defaultProps = {
+    activityProp: [],
+};
 export default Activity;

@@ -4,9 +4,18 @@ const listId1 = shortid.generate();
 const listId2 = shortid.generate();
 const cardId1 = shortid.generate();
 const cardId2 = shortid.generate();
+const activityId = shortid.generate();
 
+// export const initialActivity = {
+//     activityList: ['Welcome to new Twello Board'],
+// };
 export const initialActivity = {
-    activityList: ['Welcome to new Twello Board'],
+    activities: {
+        [activityId]: {
+            activityName: 'Welcome to new Twello Board',
+            activityID: activityId,
+        },
+    }
 };
 
 export const listInitialState = {

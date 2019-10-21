@@ -3,6 +3,7 @@ import './card.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Draggable } from 'react-beautiful-dnd';
 import {
     closeTask, editCard,
 } from './actionCreator';
@@ -14,21 +15,33 @@ const Card = (props) => {
 
     return (
         <div className="scrollList">
-            {cardListIds.map((cardId) => (
-                <div
-                    className="mycard"
+            {cardListIds.map((cardId, index) => (
+                <Draggable
+                    draggableId={cardId}
+                    index={index}
                     key={cardId}>
-                    <EditText
-                        onSave={(val) => {
-                            props.cardActions.editCard(props.list.listID, cardId.cardID, val);
-                        }}
-                        value={cards[cardId].text} />
-                    <button
-                        type="button"
-                        onClick={() => props.cardActions.closeTask(list.listID, cardId)}>
+                    {(provided) => (
+                        <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className="mycard"
+                            key={cardId}>
+                            <EditText
+                                onSave={(val) => {
+                                    props.cardActions.editCard(
+                                        props.list.listID, cardId.cardID, val
+                                    );
+                                }}
+                                value={cards[cardId].text} />
+                            <button
+                                type="button"
+                                onClick={() => props.cardActions.closeTask(list.listID, cardId)}>
                         X
-                    </button>
-                </div>
+                            </button>
+                        </div>
+                    )}
+                </Draggable>
             ))}
         </div>
     );

@@ -3,6 +3,7 @@ import './list.css';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Droppable } from 'react-beautiful-dnd';
 import Card from '../cardComponent/Card';
 import * as actionsList from './listActionCreator';
 import EditText from '../EditTextComponent/EditText';
@@ -19,10 +20,24 @@ const List = (props) => {
                         props.listActions.editList(list.listID, val);
                     }}
                     value={list.title} />
-                <Card list={list} />
+                <Droppable droppableId={list.listID}>
+                    {/* //pass all props in droppableProps, and provide style with innerRef */}
+                    {(provided) => (
+                        <div
+                            {...provided.droppableProps}
+                            ref={provided.innerRef}>
+                            <Card list={list} />
+                            {provided.placeholder}
+                            {' '}
+                            {/* increase the amount of space in the droppable */}
+                        </div>
+                    )}
+                </Droppable>
                 <AddCardComponent list={list} />
+
             </div>
         </div>
+
     );
 };
 

@@ -4,14 +4,35 @@ import './listComponent/list.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { bindActionCreators } from 'redux';
 import List from './listComponent/List';
 import Navbar from './navBarComponent/Navbar';
 import Activity from './activityComponent/Activity';
 import AddListComponent from './listComponent/AddListComponent';
+import * as actionsList from './listComponent/listActionCreator';
+import * as actionsCard from './cardComponent/actionCreator';
 
 class App extends React.Component {
     onDragEnd = (result) => {
-        // TODO: reordering list
+        const { destination, source, draggableId } = result;
+        const { cardActions, listActions } = this.props;
+
+        if (!destination) {
+            return;
+        }
+
+        if (
+            destination.drappableId === source.draggableId
+            && destination.index === source.index
+        ) {
+            return;
+        }
+
+        if (destination.droppableId === source.droppableId) {
+            listActions.reorderCards(destination, source, draggableId);
+        } else {
+            cardActions.changeCardLocation(destination, source, draggableId);
+        }
     }
 
     render() {
@@ -51,14 +72,28 @@ const mapStateToProps = (state) => ({
     activities: state.activityReducer.activities,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+    listActions: bindActionCreators(
+        { ...actionsList },
+        dispatch,
+    ),
+    cardActions: bindActionCreators(
+        { ...actionsCard }, dispatch,
+    ),
+});
+
 App.propTypes = {
     lists: PropTypes.objectOf(PropTypes.any),
     activities: PropTypes.objectOf(PropTypes.any),
+    cardActions: PropTypes.objectOf(PropTypes.any),
+    listActions: PropTypes.objectOf(PropTypes.any),
 };
 
 App.defaultProps = {
     lists: {},
     activities: {},
+    cardActions: {},
+    listActions: {},
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

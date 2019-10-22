@@ -12,3 +12,8 @@ export const editList = (listID, value) => ({
         value,
         activityID: shortid.generate() },
 });
+
+export const reorderCards = (destination, source, draggableId) => ({
+    type: Constants.REORDER_CARDS,
+    payload: { destination, source, draggableId },
+});

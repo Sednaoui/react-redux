@@ -5,6 +5,9 @@ import { listInitialState } from '../Reducers/initialConstants';
 const listReducer = (state = listInitialState, action) => {
     const { lists } = state;
     let newCard;
+    let list;
+    let newCards;
+    let newSrcCards;
 
     switch (action.type) {
     case Constants.ADD_LIST:
@@ -34,6 +37,25 @@ const listReducer = (state = listInitialState, action) => {
                 { ...lists[action.payload.listID],
                     cards: lists[action.payload.listID].cards.filter((cardId) =>
                         !(cardId === action.payload.cardID)) } } };
+
+    case Constants.REORDER_CARDS:
+        list = lists[action.payload.source.droppableId];
+        newCards = list.cards;
+
+        newCards.splice(action.payload.source.index, 1);
+        newCards.splice(action.payload.destination.index, 0, action.payload.draggableId);
+
+        return {
+            ...state,
+            lists: {
+                ...lists,
+                [action.payload.destination.droppableId]: {
+                    ...lists[action.payload.destination.droppableId],
+                    cards: newCards,
+                },
+            },
+        };
+
     default:
         return state;
     }

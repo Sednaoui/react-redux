@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import * as actionsCard from './actionCreator';
+import AddComponent from '../addComponent/AddComponent';
 
 class AddCardComponent extends React.Component {
     constructor(props) {
@@ -34,15 +35,11 @@ class AddCardComponent extends React.Component {
         const { value } = this.state;
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    type="text"
-                    value={value}
-                    onChange={this.handleChange} />
-                <button type="submit">
-Add Card
-                </button>
-            </form>
+            <AddComponent
+                value={value}
+                onChange={this.handleChange}
+                onSubmit={this.handleSubmit}
+                type="Add Card" />
         );
     }
 }

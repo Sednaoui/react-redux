@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addList } from './listActionCreator';
+import AddComponent from '../addComponent/AddComponent';
 
 class addListComponent extends React.Component {
     constructor(props) {
@@ -34,15 +35,11 @@ class addListComponent extends React.Component {
 
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="text"
-                        value={value}
-                        onChange={this.handleChange} />
-                    <button type="submit">
-Add List
-                    </button>
-                </form>
+                <AddComponent
+                    value={value}
+                    onChange={this.handleChange}
+                    onSubmit={this.handleSubmit}
+                    type="Add List" />
             </div>
         );
     }

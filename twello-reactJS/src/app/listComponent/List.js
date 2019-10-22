@@ -24,6 +24,7 @@ const List = (props) => {
                     {/* //pass all props in droppableProps, and provide style with innerRef */}
                     {(provided) => (
                         <div
+                            // eslint-disable-next-line react/jsx-props-no-spreading
                             {...provided.droppableProps}
                             ref={provided.innerRef}>
                             <Card list={list} />

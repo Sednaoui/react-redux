@@ -18,3 +18,8 @@ export const editCard = (listID, cardID, value) => ({
     payload: { listID, cardID, value, activityID: shortid.generate() },
 });
 
+export const changeCardLocation = (destination, source, draggableId) => ({
+    type: Constants.CHANGE_CARD_LIST_LOCATION,
+    payload: { destination, source, draggableId },
+});
+

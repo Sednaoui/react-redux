@@ -56,6 +56,31 @@ const listReducer = (state = listInitialState, action) => {
             },
         };
 
+    case CardConstants.CHANGE_CARD_LIST_LOCATION:
+        list = lists[action.payload.destination.droppableId];
+        newCards = list.cards;
+
+        newCards.splice(action.payload.destination.index, 0, action.payload.draggableId);
+
+        newSrcCards = state.lists[action.payload.source.droppableId].cards.filter(
+            (cardId) => cardId !== action.payload.draggableId
+        );
+
+        return {
+            ...state,
+            lists: {
+                ...lists,
+                [action.payload.source.droppableId]: {
+                    ...lists[action.payload.source.droppableId],
+                    cards: newSrcCards,
+                },
+                [action.payload.destination.droppableId]: {
+                    ...lists[action.payload.destination.droppableId],
+                    cards: newCards,
+                },
+            },
+        };
+
     default:
         return state;
     }

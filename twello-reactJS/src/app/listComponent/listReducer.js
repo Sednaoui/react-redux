@@ -32,8 +32,8 @@ const listReducer = (state = listInitialState, action) => {
             lists: { ...lists,
                 [action.payload.listID]:
                 { ...lists[action.payload.listID],
-                    cards: lists[action.payload.listID].cards.filter((card) =>
-                        !(card.cardID === action.payload.cardID)) } } };
+                    cards: lists[action.payload.listID].cards.filter((cardId) =>
+                        !(cardId === action.payload.cardID)) } } };
     default:
         return state;
     }

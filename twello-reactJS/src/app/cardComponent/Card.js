@@ -8,6 +8,7 @@ import {
     closeTask, editCard,
 } from './actionCreator';
 import EditText from '../EditTextComponent/EditText';
+import './closeButton.css';
 
 const Card = (props) => {
     const { list, cards, lists } = props;
@@ -37,6 +38,7 @@ const Card = (props) => {
                                 }}
                                 value={cards[cardId].text} />
                             <button
+                                className="close"
                                 type="button"
                                 onClick={() => props.cardActions.closeTask(list.listID, cardId)}>
                         X

@@ -1,0 +1,12 @@
+.close {
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  background-color: #333;
+}
+

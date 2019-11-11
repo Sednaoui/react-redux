@@ -10,21 +10,15 @@ const Navbar = () => (
         </a>
         <a
             rel="noopener noreferrer"
-            href="https://docs.google.com/spreadsheets/d/199B5X84m8ON6ov7QrVw5DeF20KfWScvVOnVeB9v4pWs/edit?usp=sharing"
+            href=""
             target="_blank">
                     About
         </a>
         <a
             rel="noopener noreferrer"
-            href="https://bitbucket.org/willo32/twello"
+            href=""
             target="_blank">
                     Twello
-        </a>
-        <a
-            rel="noopener noreferrer"
-            href="https://www.willo.com"
-            target="_blank">
-                    Willo
         </a>
     </div>
 );
